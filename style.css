@@ -434,6 +434,9 @@ a[href="https://github.com/ronaldebch"] {
 .skills-content .right .Figma::before{
     width: 95%;
 }
+.skills-content .right .GITGITHUB::before{
+    width: 100%;
+}
 
 
 
@@ -485,7 +488,13 @@ a[href="https://api.educacionit.com/pdf/certificados/ronald-enrique-baez-chacin-
 }
 a[href="https://www.linkedin.com/in/ronaldebch/details/certifications/1718155196555/single-media-viewer/?profileId=ACoAADHxsD4B1LiaWciYnFVUoJN1IFl83lI1Kq8"] {
     color: white;
-        
+
+}
+a[href="https://cursos.desafiolatam.com/certificates/18twbvlrhi"] {
+    color: white;
+
+ 
+    
 }
 .teams .carousel .card:hover{
     background: crimson;
