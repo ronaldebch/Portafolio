@@ -1913,7 +1913,7 @@ Antivirus: Microsoft Defender · Activo
 -->
 <script>
   (()=>{
-    const cvPath='./CV-RONALD-BAEZ.pdf';
+    const cvPath='./CV-Ronald-Baez.pdf';
     const cvButton=document.querySelector('#rr-inicio .rr-actions button.rr-secondary');
     if(!cvButton||cvButton.dataset.cvConfigured)return;
     cvButton.dataset.cvConfigured='1';
@@ -1953,6 +1953,123 @@ Antivirus: Microsoft Defender · Activo
     nav.appendChild(button);
     nav.querySelectorAll('button:not([data-contact-final])').forEach(item=>{
       item.addEventListener('click',()=>button.classList.remove('active'));
+    });
+  })();
+</script>
+
+<!--
+  EXPERIENCIA RESPONSIVE
+  En teléfono y tablet la lista queda arriba y el detalle completo debajo.
+  Estas reglas tienen prioridad sobre el panel flotante de escritorio para
+  que fecha, funciones y herramientas nunca queden fuera de la pantalla.
+-->
+<style id="rr-experience-responsive-fix">
+  @media (max-width: 820px) {
+    /* El contenedor pasa a una sola columna y crece según su contenido. */
+    .rr-exp-layout {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 14px !important;
+      min-height: 0 !important;
+      height: auto !important;
+      overflow: visible !important;
+    }
+
+    /* La lista ocupa todo el ancho disponible del teléfono/tablet. */
+    .rr-exp-list {
+      display: grid !important;
+      width: 100% !important;
+      position: relative !important;
+    }
+
+    /* El detalle siempre se muestra debajo de las opciones. */
+    .rr-exp-detail {
+      display: block !important;
+      order: 2 !important;
+      position: relative !important;
+      left: auto !important;
+      right: auto !important;
+      top: auto !important;
+      width: 100% !important;
+      min-height: 0 !important;
+      margin: 0 !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      transform: none !important;
+      clip-path: none !important;
+      filter: none !important;
+      animation: none !important;
+      transition: none !important;
+      overflow: visible !important;
+    }
+
+    /* En móvil no hace falta la flecha lateral del panel de escritorio. */
+    .rr-exp-detail::before {
+      display: none !important;
+    }
+  }
+</style>
+
+<!--
+  DETALLE VISIBLE AL TOCAR UNA EXPERIENCIA
+  Cancela cualquier animación de escritorio que pudiera dejar el panel
+  transparente y, en pantallas pequeñas, lleva el detalle seleccionado
+  a una posición visible debajo de la barra de navegación.
+-->
+<script>
+  (() => {
+    const root = document.querySelector('#ronald-redesign');
+    const detail = root?.querySelector('.rr-exp-detail');
+    if (!root || !detail) return;
+
+    const mobileQuery = window.matchMedia('(max-width: 820px)');
+    const mobileInlineProperties = [
+      'position', 'left', 'right', 'top', 'width', 'min-height', 'margin',
+      'opacity', 'visibility', 'pointer-events', 'transform', 'clip-path', 'filter'
+    ];
+
+    /* Fuerza el estado visible únicamente en móvil/tablet. */
+    const keepMobileDetailVisible = () => {
+      if (!mobileQuery.matches) {
+        /* Al volver a escritorio se retiran los estilos inline del modo móvil. */
+        mobileInlineProperties.forEach((property) => detail.style.removeProperty(property));
+        return;
+      }
+      detail.getAnimations().forEach((animation) => animation.cancel());
+      Object.assign(detail.style, {
+        position: 'relative',
+        left: 'auto',
+        right: 'auto',
+        top: 'auto',
+        width: '100%',
+        minHeight: '0',
+        margin: '0',
+        opacity: '1',
+        visibility: 'visible',
+        pointerEvents: 'auto',
+        transform: 'none',
+        clipPath: 'none',
+        filter: 'none'
+      });
+    };
+
+    /* Tras tocar una opción, muestra su contenido en el viewport. */
+    const revealSelectedDetail = () => {
+      if (!mobileQuery.matches) return;
+      keepMobileDetailVisible();
+      requestAnimationFrame(() => {
+        keepMobileDetailVisible();
+        const target = Math.max(0, detail.getBoundingClientRect().top + window.scrollY - 76);
+        window.scrollTo({ top: target, behavior: 'smooth' });
+      });
+    };
+
+    keepMobileDetailVisible();
+    window.addEventListener('resize', keepMobileDetailVisible, { passive: true });
+    root.querySelectorAll('[data-rr-job]').forEach((button) => {
+      button.addEventListener('click', revealSelectedDetail);
+      button.addEventListener('touchend', revealSelectedDetail, { passive: true });
     });
   })();
 </script>
