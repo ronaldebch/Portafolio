@@ -1,0 +1,3107 @@
+<!doctype html>
+<!-- Idioma del documento en español + atributos iniciales de paleta ("blue") y modo ("dark") -->
+<html lang="es" data-palette="blue" data-mode="dark">
+<head>
+  <!-- =======================================================================
+       CAPA 0: METADATOS Y TIPOGRAFÍAS
+       ======================================================================= -->
+  <!-- Codificación UTF-8 para tildes, eñes y símbolos técnicos -->
+  <meta charset="utf-8">
+  <!-- Escalado responsivo para celulares, tablets y monitores -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Título mostrado en la pestaña del navegador -->
+  <title>Ronald Báez — Analista de Sistemas</title>
+  <!-- Descripción breve del perfil para buscadores (SEO) -->
+  <meta name="description" content="Portafolio profesional de Ronald Báez: Analista de Sistemas y Soporte de Aplicaciones N2/N3, observabilidad, SQL, APIs REST, Cloud y automatización.">
+
+  <!-- Conexión anticipada a Google Fonts para acelerar la carga tipográfica -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Importación de Inter (lectura) y JetBrains Mono (etiquetas técnicas y terminal) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       CAPA 1: VARIABLES GLOBALES, PALETAS DE COLOR Y MODO CLARO / OSCURO
+       Editá estas variables para cambiar los colores de todo el portafolio.
+       ========================================================================== */
+    :root {
+      /* Familias tipográficas principales */
+      --rr-font-sans: 'Inter', -apple-system, system-ui, "Segoe UI", sans-serif;
+      --rr-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+      /* Tema por defecto: Modo Oscuro + Paleta Azul */
+      --rr-bg: #05070c;
+      --rr-shell: #080c13;
+      --rr-panel: #0d131e;
+      --rr-panel2: #121a27;
+      --rr-line: #232f42;
+      --rr-text: #f1f5f9;
+      --rr-muted: #94a3b8;
+      --rr-accent: #6f92ff;
+      --rr-accent2: #63d9c5;
+      --rr-accent-glow: rgba(111, 146, 255, 0.25);
+      --rr-accent-soft: rgba(111, 146, 255, 0.12);
+      --rr-green: #52d39a;
+      --rr-danger: #f87171;
+      --rr-header-bg: rgba(8, 12, 19, 0.86);
+      --rr-grid-line: rgba(148, 163, 184, 0.06);
+    }
+
+    /* --- Paleta 2: Fintech (azul cielo + índigo) --- */
+    html[data-palette="fintech"] {
+      --rr-bg: #060a14;
+      --rr-shell: #0b1120;
+      --rr-panel: #111827;
+      --rr-panel2: #162033;
+      --rr-line: #24324a;
+      --rr-accent: #38bdf8;
+      --rr-accent2: #818cf8;
+      --rr-accent-glow: rgba(56, 189, 248, 0.24);
+      --rr-accent-soft: rgba(56, 189, 248, 0.12);
+      --rr-header-bg: rgba(11, 17, 32, 0.88);
+    }
+
+    /* --- Paleta 3: DevOps / Terminal (verde esmeralda + cian) --- */
+    html[data-palette="devops"] {
+      --rr-bg: #06090c;
+      --rr-shell: #090d11;
+      --rr-panel: #0f151b;
+      --rr-panel2: #141c24;
+      --rr-line: #22303c;
+      --rr-accent: #10b981;
+      --rr-accent2: #22d3ee;
+      --rr-accent-glow: rgba(16, 185, 129, 0.24);
+      --rr-accent-soft: rgba(16, 185, 129, 0.12);
+      --rr-header-bg: rgba(9, 13, 17, 0.88);
+    }
+
+    /* --- Paleta 4: Ámbar / Grafito (dorado + texto blanco hueso) --- */
+    html[data-palette="amber"] {
+      --rr-bg: #0b0d11;
+      --rr-shell: #0f1115;
+      --rr-panel: #151921;
+      --rr-panel2: #1b202b;
+      --rr-line: #2b3140;
+      --rr-text: #f8fafc;
+      --rr-accent: #f59e0b;
+      --rr-accent2: #fbbf24;
+      --rr-accent-glow: rgba(245, 158, 11, 0.24);
+      --rr-accent-soft: rgba(245, 158, 11, 0.12);
+      --rr-header-bg: rgba(15, 17, 21, 0.88);
+    }
+
+    /* --- Modo Claro (recalcula fondos y contrastes para las 4 paletas) --- */
+    html[data-mode="light"] {
+      --rr-bg: #e9eff6;
+      --rr-shell: #f8fafc;
+      --rr-panel: #ffffff;
+      --rr-panel2: #f1f5f9;
+      --rr-line: #d4deea;
+      --rr-text: #0f172a;
+      --rr-muted: #475569;
+      --rr-green: #15803d;
+      --rr-danger: #dc2626;
+      --rr-header-bg: rgba(248, 250, 252, 0.92);
+      --rr-grid-line: rgba(15, 23, 42, 0.05);
+    }
+
+    /* Ajustes de acento en Modo Claro para mantener buen contraste */
+    html[data-mode="light"][data-palette="blue"]    { --rr-accent: #2c52cc; --rr-accent2: #0d9488; }
+    html[data-mode="light"][data-palette="fintech"] { --rr-accent: #0284c7; --rr-accent2: #4f46e5; }
+    html[data-mode="light"][data-palette="devops"]  { --rr-accent: #059669; --rr-accent2: #0891b2; }
+    html[data-mode="light"][data-palette="amber"]   { --rr-accent: #d97706; --rr-accent2: #ea580c; }
+
+    /* ==========================================================================
+       CAPA 2: RESET, ACCESIBILIDAD Y ESTRUCTURA GENERAL
+       ========================================================================== */
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--rr-bg);
+      color: var(--rr-text);
+      font-family: var(--rr-font-sans);
+      line-height: 1.5;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Anillo de foco visible para navegación con teclado (Tab) */
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible {
+      outline: 2px solid var(--rr-accent);
+      outline-offset: 2px;
+    }
+
+    /* Control estricto de tamaño para todos los íconos SVG */
+    i[data-lucide],
+    i.rr-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    i.rr-icon svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Barra superior fina que indica el porcentaje leído de la página */
+    .rr-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      z-index: 2100;
+      background: linear-gradient(90deg, var(--rr-accent), var(--rr-accent2));
+      transition: width 0.08s linear;
+    }
+
+    /* Contenedor centrado del portafolio */
+    #ronald-redesign {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 84px 14px 20px; /* Espacio superior para no quedar tapado por la cabecera fija */
+    }
+
+    /* Caja externa del sitio */
+    .rr-page {
+      overflow: hidden;
+      border: 1px solid var(--rr-line);
+      border-radius: 18px;
+      background: var(--rr-shell);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    /* ==========================================================================
+       CAPA 3: CABECERA FIJA, MENÚ DE NAVEGACIÓN Y SELECTOR DE TEMAS
+       ========================================================================== */
+    .rr-top {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2000;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--rr-line);
+      background: var(--rr-header-bg);
+      backdrop-filter: blur(14px);
+      transition: box-shadow 0.3s ease, background-color 0.25s ease;
+    }
+
+    .rr-top.scrolled {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .rr-top-inner {
+      max-width: 1252px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .rr-nav {
+      display: flex;
+      gap: 5px;
+      padding: 4px;
+      border: 1px solid var(--rr-line);
+      border-radius: 11px;
+      background: var(--rr-panel2);
+      overflow-x: auto;
+      max-width: 100%;
+    }
+
+    .rr-nav button {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 13px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--rr-muted);
+      font: 500 13px var(--rr-font-sans);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .rr-nav button i {
+      width: 16px;
+      height: 16px;
+    }
+
+    .rr-nav button:hover,
+    .rr-nav button.active {
+      background: var(--rr-accent);
+      color: #fff;
+      box-shadow: 0 4px 14px var(--rr-accent-glow);
+    }
+
+    /* Controles de paleta de color y modo Claro/Oscuro */
+    .rr-theme-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .rr-palettes {
+      display: flex;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid var(--rr-line);
+      border-radius: 10px;
+      background: var(--rr-panel2);
+    }
+
+    .rr-swatch {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 9px;
+      border: 1px solid transparent;
+      border-radius: 7px;
+      background: transparent;
+      color: var(--rr-muted);
+      font: 500 12px var(--rr-font-sans);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .rr-swatch:hover,
+    .rr-swatch.active {
+      background: var(--rr-panel);
+      border-color: var(--rr-accent);
+      color: var(--rr-text);
+    }
+
+    .rr-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .rr-mode-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 11px;
+      border: 1px solid var(--rr-line);
+      border-radius: 10px;
+      background: var(--rr-panel2);
+      color: var(--rr-text);
+      font: 500 12px var(--rr-font-sans);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .rr-mode-btn i {
+      width: 15px;
+      height: 15px;
+      color: var(--rr-accent);
+    }
+
+    .rr-mode-btn:hover {
+      border-color: var(--rr-accent);
+    }
+
+    /* ==========================================================================
+       CAPA 4: SECCIONES GENERALES Y ANIMACIÓN DE APARICIÓN
+       ========================================================================== */
+    .rr-section {
+      position: relative;
+      padding: 32px 28px;
+      scroll-margin-top: 84px;
+    }
+
+    /* Tarjeta elevada para cada bloque debajo del Hero */
+    .rr-section:not(#rr-inicio) {
+      margin: 22px 18px;
+      border: 1px solid var(--rr-line);
+      border-radius: 16px;
+      background: var(--rr-panel);
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.22);
+      overflow: hidden;
+    }
+
+    /* Filete superior con degradado del tema */
+    .rr-section:not(#rr-inicio)::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--rr-accent), var(--rr-accent2));
+    }
+
+    .rr-eyebrow {
+      display: inline-block;
+      color: var(--rr-accent);
+      font: 600 12px var(--rr-font-mono);
+      letter-spacing: 0.08em;
+    }
+
+    .rr-section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      margin-bottom: 22px;
+    }
+
+    .rr-section-head h2 {
+      margin: 6px 0 0;
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+    }
+
+    .rr-section-head p {
+      max-width: 520px;
+      margin: 0;
+      color: var(--rr-muted);
+      font-size: 14.5px;
+      line-height: 1.55;
+    }
+
+    /* Animación suave cuando cada sección entra en pantalla */
+    .rr-reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    .rr-reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ==========================================================================
+       CAPA 5: HERO (PRESENTACIÓN Y CREDENCIAL DIGITAL ORIGINAL)
+       ========================================================================== */
+    .rr-hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(260px, 390px);
+      gap: 28px;
+      align-items: center;
+      min-height: 470px;
+      border-bottom: 1px solid var(--rr-line);
+      overflow: hidden;
+    }
+
+    /* Cuadrícula técnica sutil + brillo radial detrás de la credencial */
+    .rr-hero-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 82% 45%, var(--rr-accent-glow), transparent 48%),
+        linear-gradient(var(--rr-grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--rr-grid-line) 1px, transparent 1px);
+      background-size: 100% 100%, 34px 34px, 34px 34px;
+    }
+
+    .rr-hero-copy,
+    .rr-portrait {
+      position: relative;
+      z-index: 1;
+    }
+
+    .rr-hero h1 {
+      margin: 14px 0;
+      font-size: clamp(32px, 4.2vw, 46px);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+    }
+
+    .rr-hero h1 span {
+      color: var(--rr-accent);
+    }
+
+    .rr-lead {
+      max-width: 680px;
+      margin: 0;
+      color: var(--rr-muted);
+      font-size: 15.5px;
+      line-height: 1.65;
+    }
+
+    .rr-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .rr-primary,
+    .rr-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 18px;
+      border-radius: 9px;
+      font: 600 14px var(--rr-font-sans);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .rr-primary {
+      border: 1px solid var(--rr-accent);
+      background: var(--rr-accent);
+      color: #fff;
+    }
+
+    /* Efecto de brillo luminoso animado al pasar el cursor sobre Descargar CV */
+    .rr-cv-btn {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rr-cv-btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -130%;
+      width: 65%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+      transform: skewX(-22deg);
+      transition: left 0.6s ease;
+    }
+
+    .rr-cv-btn:hover {
+      box-shadow: 0 0 24px var(--rr-accent), 0 8px 22px var(--rr-accent-glow);
+      filter: brightness(1.1);
+    }
+
+    .rr-cv-btn:hover::after {
+      left: 145%;
+    }
+
+    .rr-secondary {
+      border: 1px solid var(--rr-line);
+      background: transparent;
+      color: var(--rr-text);
+    }
+
+    .rr-primary:hover,
+    .rr-secondary:hover {
+      background: var(--rr-accent);
+      border-color: var(--rr-accent);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px var(--rr-accent-glow);
+    }
+
+    /* Grilla de 6 áreas de especialidad */
+    .rr-hero-data {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .rr-hero-data > div {
+      padding-top: 12px;
+      border-top: 1px solid var(--rr-line);
+    }
+
+    .rr-hero-data strong {
+      display: block;
+      font-size: 15.5px;
+      font-weight: 600;
+      color: var(--rr-text);
+    }
+
+    .rr-hero-data span {
+      display: block;
+      margin-top: 4px;
+      color: var(--rr-muted);
+      font-size: 12.5px;
+      line-height: 1.45;
+    }
+
+    /* Credencial digital original sin marco ni tarjeta alrededor */
+    .rr-portrait {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .rr-portrait img {
+      width: 100%;
+      max-width: 370px;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.35));
+    }
+
+    /* ==========================================================================
+       CAPA 6: PROPUESTA DE VALOR, CERTIFICADOS Y FORMACIÓN UNIVERSITARIA
+       ========================================================================== */
+    .rr-value {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    .rr-value article {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      border: 1px solid var(--rr-line);
+      border-top: 2px solid var(--rr-accent);
+      border-radius: 12px;
+      background: var(--rr-panel2);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .rr-value article[hidden] {
+      display: none;
+    }
+
+    .rr-value article:hover {
+      transform: translateY(-3px);
+      border-color: var(--rr-accent);
+    }
+
+    .rr-value article > i {
+      width: 26px;
+      height: 26px;
+      color: var(--rr-accent);
+    }
+
+    .rr-value h3 {
+      margin: 14px 0 8px;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .rr-value p {
+      margin: 0;
+      color: var(--rr-muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .rr-value code {
+      display: block;
+      margin-top: auto;
+      padding-top: 14px;
+      color: var(--rr-accent);
+      font: 500 12px var(--rr-font-mono);
+    }
+
+    /* Miniaturas de certificados (object-fit: contain muestra el diploma completo) */
+    .rr-cert-thumb {
+      aspect-ratio: 16 / 11;
+      width: 100%;
+      margin-bottom: 12px;
+      padding: 0;
+      border: 1px solid var(--rr-line);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--rr-panel);
+      color: var(--rr-accent);
+      font: 700 20px var(--rr-font-mono);
+    }
+
+    .rr-cert-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .rr-cert-card:hover .rr-cert-thumb img {
+      transform: scale(1.04);
+    }
+
+    /* Tarjeta destacada de Formación Universitaria debajo de los certificados */
+    .rr-degree-card {
+      margin-top: 22px;
+      padding: 24px;
+      border: 1px solid var(--rr-line);
+      border-left: 4px solid var(--rr-accent);
+      border-radius: 14px;
+      background: var(--rr-panel2);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 210px;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .rr-degree-info h3 {
+      margin: 8px 0 4px;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--rr-text);
+    }
+
+    .rr-degree-inst {
+      margin: 0 0 6px;
+      font-size: 15.5px;
+      font-weight: 600;
+      color: var(--rr-accent);
+    }
+
+    .rr-degree-meta {
+      margin: 0 0 10px;
+      font: 500 12.5px var(--rr-font-mono);
+      color: var(--rr-muted);
+    }
+
+    .rr-degree-desc {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--rr-muted);
+    }
+
+    /* Marco vertical para el diploma universitario (TITULO.jpg) */
+    .rr-degree-thumb {
+      margin: 0;
+      aspect-ratio: 3 / 4;
+      width: 100%;
+      padding: 0;
+      border: 1px solid var(--rr-line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--rr-panel);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--rr-accent);
+      font: 700 18px var(--rr-font-mono);
+      text-align: center;
+    }
+
+    .rr-degree-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .rr-degree-card:hover .rr-degree-thumb img {
+      transform: scale(1.04);
+    }
+
+    /* ==========================================================================
+       CAPA 7: TRAYECTORIA PROFESIONAL
+       ========================================================================== */
+    .rr-exp-layout {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .rr-exp-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .rr-exp {
+      display: grid;
+      grid-template-columns: 76px 1fr;
+      gap: 10px;
+      width: 100%;
+      padding: 13px;
+      border: 1px solid var(--rr-line);
+      border-radius: 10px;
+      background: var(--rr-panel2);
+      color: var(--rr-text);
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .rr-exp span {
+      font: 500 12px var(--rr-font-mono);
+      color: var(--rr-muted);
+    }
+
+    .rr-exp b {
+      display: block;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--rr-text);
+    }
+
+    .rr-exp small {
+      display: block;
+      margin-top: 3px;
+      font-size: 12px;
+      color: var(--rr-accent);
+    }
+
+    .rr-exp:hover,
+    .rr-exp.active {
+      background: var(--rr-accent);
+      border-color: var(--rr-accent);
+      transform: translateX(4px);
+    }
+
+    .rr-exp:hover span,
+    .rr-exp:hover b,
+    .rr-exp:hover small,
+    .rr-exp.active span,
+    .rr-exp.active b,
+    .rr-exp.active small {
+      color: #fff;
+    }
+
+    .rr-exp-detail {
+      position: sticky;
+      top: 90px;
+      padding: 24px;
+      border: 1px solid var(--rr-line);
+      border-radius: 14px;
+      background: var(--rr-panel2);
+    }
+
+    .rr-exp-detail > span {
+      color: var(--rr-accent);
+      font: 600 12px var(--rr-font-mono);
+    }
+
+    .rr-exp-detail h3 {
+      margin: 8px 0 4px;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .rr-exp-detail > p {
+      margin: 0;
+      color: var(--rr-muted);
+      font-size: 14.5px;
+    }
+
+    .rr-exp-detail h4 {
+      margin: 18px 0 8px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .rr-exp-detail ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--rr-muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .rr-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 18px;
+    }
+
+    .rr-tags span {
+      padding: 5px 9px;
+      border: 1px solid var(--rr-line);
+      border-radius: 6px;
+      background: var(--rr-panel);
+      font: 500 12px var(--rr-font-mono);
+    }
+
+    /* ==========================================================================
+       CAPA 8: CAPACIDADES TÉCNICAS, FILTROS Y BUSCADOR EN VIVO
+       ========================================================================== */
+    .rr-cap-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .rr-cap-toolbar .rr-filter-tabs {
+      margin-bottom: 0;
+    }
+
+    .rr-filter-tabs,
+    .rr-lab-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .rr-filter-tabs button,
+    .rr-lab-tabs button {
+      padding: 8px 14px;
+      border: 1px solid var(--rr-line);
+      border-radius: 8px;
+      background: var(--rr-panel2);
+      color: var(--rr-muted);
+      font: 500 13px var(--rr-font-sans);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .rr-filter-tabs button.active,
+    .rr-filter-tabs button:hover,
+    .rr-lab-tabs button.active,
+    .rr-lab-tabs button:hover {
+      background: var(--rr-accent);
+      border-color: var(--rr-accent);
+      color: #fff;
+    }
+
+    /* Caja del buscador de herramientas */
+    .rr-search-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 280px;
+      flex: 1 1 280px;
+      max-width: 390px;
+      padding: 7px 12px;
+      border: 1px solid var(--rr-line);
+      border-radius: 9px;
+      background: var(--rr-panel2);
+    }
+
+    .rr-search-box i {
+      width: 16px;
+      height: 16px;
+      color: var(--rr-accent);
+    }
+
+    .rr-search-box input {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: var(--rr-text);
+      font: 13px var(--rr-font-sans);
+      outline: none;
+    }
+
+    .rr-empty-msg {
+      padding: 14px 16px;
+      border: 1px dashed var(--rr-line);
+      border-radius: 10px;
+      color: var(--rr-muted);
+      font-size: 13.5px;
+    }
+
+    .rr-cap-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .rr-cap {
+      padding: 20px;
+      border: 1px solid var(--rr-line);
+      border-left: 3px solid var(--rr-accent);
+      border-radius: 12px;
+      background: var(--rr-panel2);
+    }
+
+    .rr-cap[hidden],
+    .rr-tool[hidden] {
+      display: none;
+    }
+
+    .rr-cap-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .rr-cap-head i {
+      width: 22px;
+      height: 22px;
+      color: var(--rr-accent);
+    }
+
+    .rr-cap h3 {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .rr-cap > p {
+      margin: 8px 0 14px;
+      color: var(--rr-muted);
+      font-size: 14px;
+    }
+
+    .rr-tool-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .rr-tool {
+      padding: 10px 12px;
+      border: 1px solid var(--rr-line);
+      border-radius: 8px;
+      background: var(--rr-panel);
+    }
+
+    .rr-tool b {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+
+    .rr-tool small {
+      display: block;
+      margin-top: 3px;
+      font-size: 12px;
+      line-height: 1.4;
+      color: var(--rr-muted);
+    }
+
+    /* ==========================================================================
+       CAPA 9: CASOS DE ESTUDIO Y LABORATORIO TÉCNICO
+       ========================================================================== */
+    .rr-projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+    }
+
+    .rr-project {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      border: 1px solid var(--rr-line);
+      border-radius: 12px;
+      background: var(--rr-panel2);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .rr-project:hover {
+      transform: translateY(-4px);
+      border-color: var(--rr-accent);
+    }
+
+    .rr-project-no {
+      color: var(--rr-accent);
+      font: 600 12px var(--rr-font-mono);
+    }
+
+    .rr-project h3 {
+      margin: 12px 0 8px;
+      font-size: 18px;
+    }
+
+    .rr-project p {
+      margin: 0;
+      color: var(--rr-muted);
+      font-size: 14px;
+    }
+
+    .rr-project-scenario,
+    .rr-project-result {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--rr-line);
+      font-size: 12.5px;
+      color: var(--rr-muted);
+    }
+
+    .rr-project-scenario b,
+    .rr-project-result b {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--rr-text);
+      font-size: 12.5px;
+    }
+
+    .rr-project-scenario code {
+      color: var(--rr-accent);
+      font: 500 11.5px var(--rr-font-mono);
+    }
+
+    .rr-project .rr-tags {
+      margin-top: auto;
+      padding-top: 12px;
+    }
+
+    .rr-project > button {
+      margin-top: 14px;
+      padding: 10px;
+      border: 1px solid var(--rr-line);
+      border-radius: 8px;
+      background: transparent;
+      color: var(--rr-text);
+      font: 600 13px var(--rr-font-sans);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .rr-project > button:hover {
+      background: var(--rr-accent);
+      border-color: var(--rr-accent);
+      color: #fff;
+    }
+
+    .rr-lab-panel[hidden],
+    .rr-log-controls[hidden] {
+      display: none;
+    }
+
+    .rr-script-layout {
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      gap: 14px;
+    }
+
+    .rr-script-list,
+    .rr-script-output,
+    .rr-api > div {
+      border: 1px solid var(--rr-line);
+      border-radius: 12px;
+      background: var(--rr-panel2);
+      overflow: hidden;
+    }
+
+    .rr-script-list h3,
+    .rr-api h3 {
+      margin: 0;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--rr-line);
+      font-size: 14px;
+    }
+
+    .rr-script-buttons {
+      padding: 8px;
+      display: grid;
+      gap: 4px;
+    }
+
+    .rr-script {
+      display: grid;
+      grid-template-columns: 20px 1fr auto;
+      gap: 10px;
+      align-items: center;
+      width: 100%;
+      padding: 10px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--rr-text);
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .rr-script i {
+      width: 18px;
+      height: 18px;
+      color: var(--rr-accent);
+    }
+
+    .rr-script b {
+      display: block;
+      font-size: 13px;
+    }
+
+    .rr-script small {
+      display: block;
+      font-size: 11.5px;
+      color: var(--rr-muted);
+    }
+
+    .rr-script code {
+      font: 600 11px var(--rr-font-mono);
+      color: var(--rr-accent);
+    }
+
+    .rr-script.active,
+    .rr-script:hover {
+      background: var(--rr-accent);
+      color: #fff;
+    }
+
+    .rr-script.active i,
+    .rr-script.active small,
+    .rr-script.active code,
+    .rr-script:hover i,
+    .rr-script:hover small,
+    .rr-script:hover code {
+      color: #fff;
+    }
+
+    .rr-script-output-head {
+      padding: 16px;
+    }
+
+    .rr-script-output-head span {
+      color: var(--rr-accent);
+      font: 600 12px var(--rr-font-mono);
+    }
+
+    .rr-script-output-head h3 {
+      margin: 6px 0 4px;
+      font-size: 18px;
+    }
+
+    .rr-script-output-head p {
+      margin: 0;
+      color: var(--rr-muted);
+      font-size: 13.5px;
+    }
+
+    .rr-command {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 16px 10px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: var(--rr-panel);
+      font: 500 12px var(--rr-font-mono);
+      color: var(--rr-muted);
+    }
+
+    .rr-command-actions {
+      display: flex;
+      gap: 6px;
+    }
+
+    /* Botones auxiliares dentro del laboratorio */
+    .rr-mini-btn {
+      padding: 6px 10px;
+      border: 1px solid var(--rr-line);
+      border-radius: 6px;
+      background: var(--rr-panel2);
+      color: var(--rr-text);
+      font: 500 11.5px var(--rr-font-sans);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .rr-mini-btn:hover,
+    .rr-mini-btn.active {
+      background: var(--rr-accent);
+      border-color: var(--rr-accent);
+      color: #fff;
+    }
+
+    .rr-run-btn {
+      padding: 6px 12px;
+      border: 0;
+      border-radius: 6px;
+      background: var(--rr-accent);
+      color: #fff;
+      font: 600 12px var(--rr-font-sans);
+      cursor: pointer;
+    }
+
+    .rr-log-controls {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 0 16px 10px;
+      font-size: 12px;
+      color: var(--rr-muted);
+    }
+
+    .rr-terminal-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 16px 6px;
+      font: 600 11px var(--rr-font-mono);
+      color: var(--rr-muted);
+    }
+
+    .rr-terminal,
+    .rr-json {
+      min-height: 205px;
+      margin: 0 16px 16px;
+      padding: 14px;
+      border-radius: 8px;
+      background: #05080d;
+      color: #c5d1e3;
+      font: 12.5px/1.65 var(--rr-font-mono);
+      white-space: pre-wrap;
+      overflow-x: auto;
+    }
+
+    .rr-api {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 14px;
+    }
+
+    .rr-api-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-right: 14px;
+      border-bottom: 1px solid var(--rr-line);
+    }
+
+    .rr-api-head h3 {
+      border-bottom: 0;
+    }
+
+    .rr-api-headers {
+      margin: 12px 14px 0;
+      padding: 8px 12px;
+      border: 1px solid var(--rr-line);
+      border-radius: 7px;
+      background: var(--rr-panel);
+      font: 11.5px var(--rr-font-mono);
+      color: var(--rr-muted);
+    }
+
+    .rr-api-row {
+      display: grid;
+      grid-template-columns: 50px 1fr 48px;
+      gap: 8px;
+      width: 100%;
+      padding: 12px 16px;
+      border: 0;
+      border-bottom: 1px solid var(--rr-line);
+      background: transparent;
+      color: var(--rr-text);
+      font: 13px var(--rr-font-mono);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .rr-api-row:hover,
+    .rr-api-row.active {
+      background: var(--rr-accent-soft);
+    }
+
+    .rr-api-row span:first-child {
+      color: var(--rr-accent);
+      font-weight: 600;
+    }
+
+    .rr-ok {
+      color: var(--rr-green);
+      text-align: right;
+      font-weight: 600;
+    }
+
+    .rr-err {
+      color: var(--rr-danger);
+      text-align: right;
+      font-weight: 600;
+    }
+
+    .rr-json {
+      margin: 12px 14px 14px;
+    }
+
+    /* ==========================================================================
+       CAPA 10: PIE DE PÁGINA, TARJETAS DE CONTACTO Y CONTADOR MINIATURA
+       ========================================================================== */
+    .rr-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      padding: 32px 28px;
+      border-top: 1px solid var(--rr-line);
+      background: #0d131e;
+      color: #f8fafc;
+    }
+
+    /* Cabecera superior del footer: disponibilidad + botón volver arriba */
+    .rr-contact-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* Insignia con punto verde que indica disponibilidad laboral */
+    .rr-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 11px;
+      margin-bottom: 10px;
+      border: 1px solid rgba(82, 211, 154, 0.35);
+      border-radius: 999px;
+      background: rgba(82, 211, 154, 0.1);
+      color: #52d39a;
+      font: 500 12px var(--rr-font-mono);
+    }
+
+    .rr-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #52d39a;
+      box-shadow: 0 0 8px #52d39a;
+    }
+
+    .rr-contact h2 {
+      margin: 0 0 6px;
+      font-size: 26px;
+    }
+
+    .rr-contact-sub {
+      margin: 0;
+      color: #94a3b8;
+      font-size: 14px;
+      max-width: 640px;
+    }
+
+    /* Grilla de 4 tarjetas de contacto directo (Email, LinkedIn, GitHub, CV) */
+    .rr-contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .rr-contact-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 16px;
+      border: 1px solid #232f42;
+      border-radius: 12px;
+      background: #121a27;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .rr-contact-card:hover {
+      border-color: var(--rr-accent);
+      transform: translateY(-2px);
+    }
+
+    .rr-contact-card small {
+      display: block;
+      color: #94a3b8;
+      font: 600 11px var(--rr-font-mono);
+      letter-spacing: 0.06em;
+    }
+
+    .rr-contact-card a {
+      color: #f8fafc;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .rr-contact-card a:hover {
+      color: var(--rr-accent);
+      text-decoration: underline;
+    }
+
+    /* Botones oscuros compactos del pie de página */
+    .rr-copy-btn {
+      align-self: flex-start;
+      padding: 6px 11px;
+      border: 1px solid #33445f;
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      font: 500 12px var(--rr-font-sans);
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .rr-copy-btn:hover {
+      background: var(--rr-accent);
+      border-color: var(--rr-accent);
+    }
+
+    /* Barra inferior del footer con ficha para recruiters y derechos */
+    .rr-contact-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding-top: 18px;
+      border-top: 1px solid #232f42;
+    }
+
+    /* Bloque separado debajo de las tarjetas para el monitor miniatura */
+    .rr-visitor-showcase {
+      display: flex;
+      justify-content: center;
+      padding-top: 6px;
+    }
+
+    /* Escena miniatura: muñequito sentado frente a una pantalla de computadora con el contador */
+    .rr-desk-widget {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 10px;
+      padding: 10px 18px;
+      border: 1px solid #2b3952;
+      border-radius: 12px;
+      background: #121a27;
+    }
+
+    .rr-desk-person {
+      width: 34px;
+      height: 44px;
+      flex-shrink: 0;
+      color: var(--rr-accent);
+    }
+
+    .rr-mini-monitor {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .rr-mini-screen {
+      min-width: 96px;
+      padding: 5px 10px;
+      border: 2px solid #3b4d6b;
+      border-radius: 6px;
+      background: #05080d;
+      box-shadow: 0 0 12px var(--rr-accent-glow);
+      text-align: center;
+    }
+
+    .rr-mini-screen span {
+      display: block;
+      font: 600 9px var(--rr-font-mono);
+      letter-spacing: 0.08em;
+      color: #94a3b8;
+    }
+
+    .rr-mini-screen strong {
+      display: block;
+      margin-top: 1px;
+      font: 700 13px var(--rr-font-mono);
+      color: var(--rr-accent2);
+    }
+
+    .rr-mini-stand {
+      width: 12px;
+      height: 5px;
+      background: #3b4d6b;
+    }
+
+    .rr-mini-base {
+      width: 34px;
+      height: 3px;
+      border-radius: 2px;
+      background: #4e6387;
+    }
+
+    /* Pastilla lateral en vivo: punto verde pulsante + bandera + país conectado */
+    .rr-live-country {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-left: 6px;
+      padding: 6px 11px;
+      border: 1px solid rgba(82, 211, 154, 0.32);
+      border-radius: 8px;
+      background: rgba(82, 211, 154, 0.08);
+      font: 500 11.5px var(--rr-font-mono);
+      color: #e2e8f0;
+      align-self: center;
+    }
+
+    .rr-live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+      flex-shrink: 0;
+      animation: rr-pulse-green 1.8s infinite;
+    }
+
+    @keyframes rr-pulse-green {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.35); opacity: 0.55; }
+    }
+
+    .rr-live-flag {
+      font-size: 15px;
+      line-height: 1;
+    }
+
+    .rr-copyright {
+      margin: 0;
+      font: 12px var(--rr-font-mono);
+      color: #94a3b8;
+    }
+
+    /* ==========================================================================
+       CAPA 11: ADAPTACIÓN RESPONSIVA (TABLET Y CELULAR)
+       ========================================================================== */
+    @media (max-width: 960px) {
+      #ronald-redesign {
+        padding-top: 124px; /* Compensa la barra superior cuando pasa a 2 filas */
+      }
+
+      .rr-hero,
+      .rr-exp-layout,
+      .rr-cap-grid,
+      .rr-script-layout,
+      .rr-api,
+      .rr-degree-card {
+        grid-template-columns: 1fr;
+      }
+
+      .rr-portrait {
+        order: -1; /* Muestra la credencial arriba en pantallas angostas */
+      }
+
+      .rr-portrait img {
+        max-width: 260px;
+      }
+
+      .rr-exp-detail {
+        position: static;
+      }
+
+      .rr-hero-data {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 580px) {
+      #ronald-redesign {
+        padding: 128px 8px 12px;
+      }
+
+      .rr-section {
+        padding: 22px 16px;
+      }
+
+      .rr-section:not(#rr-inicio) {
+        margin: 14px 8px;
+      }
+
+      .rr-section-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .rr-hero-data,
+      .rr-tool-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Barra superior de 3px que muestra el progreso de lectura al bajar por la página -->
+  <div class="rr-progress-bar" id="rr-progress-bar" aria-hidden="true"></div>
+
+  <!-- Contenedor raíz que delimita todo el portafolio -->
+  <div id="ronald-redesign">
+    <!-- Marco principal con bordes redondeados y sombra -->
+    <div class="rr-page">
+
+      <!-- =====================================================================
+           CAPA 1: CABECERA FIJA, MENÚ DE NAVEGACIÓN Y SELECTOR DE TEMAS
+           ===================================================================== -->
+      <header class="rr-top" id="rr-header">
+        <div class="rr-top-inner">
+          <!-- Barra de navegación: cada botón usa data-rr-nav="<id>" para desplazarse a #rr-<id> -->
+          <nav class="rr-nav" aria-label="Navegación principal">
+            <button class="active" data-rr-nav="inicio" type="button">
+              <i data-lucide="house"></i>Inicio
+            </button>
+            <button data-rr-nav="experiencia" type="button">Experiencia</button>
+            <button data-rr-nav="capacidades" type="button">Capacidades</button>
+            <button data-rr-nav="proyectos" type="button">Proyectos</button>
+            <button data-rr-nav="laboratorio" type="button">Laboratorio</button>
+            <button data-rr-nav="certificados" type="button">Certificados</button>
+            <button data-rr-nav="footer" type="button">Contacto</button>
+          </nav>
+
+          <!-- Controles de apariencia visual: 4 paletas de color + botón Claro/Oscuro -->
+          <div class="rr-theme-controls" aria-label="Selector de tema y color">
+            <!-- Grupo de 4 botones para cambiar la paleta de colores -->
+            <div class="rr-palettes" role="group" aria-label="Paletas de color">
+              <button class="rr-swatch active" data-set-palette="blue" type="button" title="Paleta Azul">
+                <span class="rr-dot" style="background:#6f92ff"></span>Azul
+              </button>
+              <button class="rr-swatch" data-set-palette="fintech" type="button" title="Paleta Fintech">
+                <span class="rr-dot" style="background:#38bdf8"></span>Fintech
+              </button>
+              <button class="rr-swatch" data-set-palette="devops" type="button" title="Paleta DevOps">
+                <span class="rr-dot" style="background:#10b981"></span>DevOps
+              </button>
+              <button class="rr-swatch" data-set-palette="amber" type="button" title="Paleta Ámbar">
+                <span class="rr-dot" style="background:#f59e0b"></span>Ámbar
+              </button>
+            </div>
+            <!-- Interruptor manual entre modo Claro y modo Oscuro -->
+            <button class="rr-mode-btn" id="rr-mode-toggle" type="button" aria-label="Cambiar entre modo claro y oscuro">
+              <i data-lucide="sun"></i><span id="rr-mode-label">Claro</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Cuerpo principal del sitio -->
+      <main>
+        <!-- ===================================================================
+             CAPA 2: HERO (PRESENTACIÓN PRINCIPAL Y CREDENCIAL DIGITAL)
+             =================================================================== -->
+        <section class="rr-section rr-hero" id="rr-inicio" data-rr-section="inicio">
+          <!-- Capa decorativa de fondo con cuadrícula técnica y brillo radial -->
+          <div class="rr-hero-bg" aria-hidden="true"></div>
+
+          <!-- Columna izquierda: texto de presentación, botón CV y especialidades -->
+          <div class="rr-hero-copy">
+            <span class="rr-eyebrow">// ANALISTA_DE_SISTEMAS · APPLICATION_SUPPORT</span>
+            <h1>Analista de Sistemas y <span>Soporte de Aplicaciones.</span></h1>
+            <p class="rr-lead">
+              Soy Analista de Sistemas con experiencia en los sectores financiero y tecnológico, especializado en soporte de aplicaciones, análisis y resolución de incidentes, monitoreo de servicios y troubleshooting. Trabajo con Linux, SQL/MySQL, APIs REST, Postman, Jira, Google Cloud, microservicios, sistemas legacy y middleware. También aplico automatización de tareas, scripting e inteligencia artificial para documentación y optimización de procesos.
+            </p>
+
+            <!-- Botón de acción principal con efecto de brillo al pasar el cursor -->
+            <!-- ARCHIVO CV: colocá CV-RONALD-BAEZ.pdf en la raíz junto a index.html -->
+            <div class="rr-actions">
+              <a class="rr-primary rr-cv-btn" href="./CV/CV-RONALD-BAEZ.pdf" target="_blank" rel="noopener noreferrer">
+                Descargar CV
+              </a>
+            </div>
+
+            <!-- Grilla de 6 áreas de especialidad (texto plano uniforme sin enlaces) -->
+            <div class="rr-hero-data">
+              <div>
+                <strong>N1 / N2 / N3</strong>
+                <span>Soporte y escalamiento técnico</span>
+              </div>
+              <div>
+                <strong>Analista de Sistemas</strong>
+                <span>Aplicaciones, datos y automatización</span>
+              </div>
+              <div>
+                <strong>Funcional · Back Office</strong>
+                <span>Banca, pagos, conciliaciones y servicios transaccionales</span>
+              </div>
+              <div>
+                <strong>Desarrollo · QA Testing</strong>
+                <span>HTML, CSS, Java y pruebas funcionales</span>
+              </div>
+              <div>
+                <strong>n8n + MCP</strong>
+                <span>Automatización, integraciones y agentes con APIs y MCP</span>
+              </div>
+              <div>
+                <strong>DevOps</strong>
+                <span>CI/CD, cloud, monitoreo y colaboración Dev &amp; Ops</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna derecha: Credencial digital original sin marco alrededor -->
+          <!-- ARCHIVO CREDENCIAL: colocá credencial.png en la raíz junto a index.html -->
+          <figure class="rr-portrait">
+            <img
+              src="./crendencial/credencial.png"
+              alt="Credencial digital profesional de Ronald Báez"
+              onerror="this.onerror=null;this.src='https://placehold.co/370x460/121a27/6f92ff?text=Ronald+Baez';"
+            >
+          </figure>
+        </section>
+
+        <!-- ===================================================================
+             CAPA 3: PROPUESTA DE VALOR Y METODOLOGÍA DE TRABAJO
+             =================================================================== -->
+        <section class="rr-section rr-reveal" id="rr-aporte">
+          <div class="rr-section-head">
+            <div>
+              <span class="rr-eyebrow">01 · PROPUESTA_DE_VALOR</span>
+              <h2>Qué aporto a un equipo</h2>
+            </div>
+            <p>Un perfil que combina soporte, análisis y operación: entiendo el incidente, reúno evidencia técnica y acompaño la resolución hasta validar el servicio.</p>
+          </div>
+
+          <!-- 5 pilares de trabajo -->
+          <div class="rr-value">
+            <article>
+              <i data-lucide="search-code" aria-hidden="true"></i>
+              <h3>Diagnosticar</h3>
+              <p>Correlación de logs, métricas, respuestas API, consultas SQL y comportamiento del usuario para reducir la incertidumbre.</p>
+              <code>logs · sql · rest · tracing</code>
+            </article>
+            <article>
+              <i data-lucide="shield-check" aria-hidden="true"></i>
+              <h3>Estabilizar</h3>
+              <p>Validación de disponibilidad, seguimiento de servicios y control posterior a la resolución en entornos productivos.</p>
+              <code>monitoring · incident · verify</code>
+            </article>
+            <article>
+              <i data-lucide="network" aria-hidden="true"></i>
+              <h3>Coordinar</h3>
+              <p>Documentación clara y escalamiento con evidencias hacia Desarrollo, QA, Infraestructura y áreas de negocio.</p>
+              <code>jira · remedy · agile · devops</code>
+            </article>
+            <article>
+              <i data-lucide="briefcase-business" aria-hidden="true"></i>
+              <h3>Roles alineados</h3>
+              <p>Analista de Sistemas, Application Support N2/N3, Analista Funcional Ssr., IT Operations y Cloud Support.</p>
+              <code>support · functional · operations</code>
+            </article>
+            <article>
+              <i data-lucide="workflow" aria-hidden="true"></i>
+              <h3>Forma de trabajo</h3>
+              <p>Responsabilidad, pensamiento analítico, documentación, orientación al servicio y colaboración transversal.</p>
+              <code>scrum · kanban · devops</code>
+            </article>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             CAPA 4: TRAYECTORIA PROFESIONAL INTERACTIVA
+             Cada botón usa data-rr-job="<clave>" vinculada al objeto jobs en el script
+             =================================================================== -->
+        <section class="rr-section rr-reveal" id="rr-experiencia" data-rr-section="experiencia">
+          <div class="rr-section-head">
+            <div>
+              <span class="rr-eyebrow">02 · TRAYECTORIA_PROFESIONAL</span>
+              <h2>Experiencia que se puede inspeccionar</h2>
+            </div>
+            <p>Seleccioná cada etapa para revisar funciones, contexto operativo y herramientas utilizadas.</p>
+          </div>
+
+          <div class="rr-exp-layout">
+            <!-- Columna izquierda: selector de empresas/etapas -->
+            <div class="rr-exp-list">
+              <button class="rr-exp active" data-rr-job="icbc" type="button">
+                <span>2025-26</span>
+                <span><b>ICBC Argentina</b><small>Analista Ssr. BackOffice</small></span>
+              </button>
+              <button class="rr-exp" data-rr-job="airata" type="button">
+                <span>2024-25</span>
+                <span><b>Airata Argentina</b><small>Analista de Sistemas</small></span>
+              </button>
+              <button class="rr-exp" data-rr-job="prisma" type="button">
+                <span>2023-24</span>
+                <span><b>Atentus · Prisma</b><small>Soporte N2</small></span>
+              </button>
+              <button class="rr-exp" data-rr-job="ike" type="button">
+                <span>2022-23</span>
+                <span><b>Iké Asistencia</b><small>Help Desk Technician</small></span>
+              </button>
+              <button class="rr-exp" data-rr-job="cinemark" type="button">
+                <span>2021-22</span>
+                <span><b>Smartway · Cinemark</b><small>Soporte IT</small></span>
+              </button>
+              <button class="rr-exp" data-rr-job="upex" type="button">
+                <span>2021</span>
+                <span><b>UPEX</b><small>Tester QA Manual</small></span>
+              </button>
+              <button class="rr-exp" data-rr-job="pdvsa" type="button">
+                <span>2017</span>
+                <span><b>PDVSA</b><small>Técnico en Informática</small></span>
+              </button>
+              <button class="rr-exp" data-rr-job="cyber" type="button">
+                <span>2007-11</span>
+                <span><b>Cyber Intercopis</b><small>Soporte Técnico</small></span>
+              </button>
+            </div>
+
+            <!-- Columna derecha: panel dinámico actualizado por JavaScript -->
+            <article class="rr-exp-detail" aria-live="polite">
+              <span id="rr-job-date"></span>
+              <h3 id="rr-job-title"></h3>
+              <p id="rr-job-role"></p>
+              <h4>Responsabilidades y alcance</h4>
+              <ul id="rr-job-items"></ul>
+              <div class="rr-tags" id="rr-job-tools"></div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             CAPA 5: CAPACIDADES TÉCNICAS CON PESTAÑAS Y BUSCADOR EN VIVO
+             =================================================================== -->
+        <section class="rr-section rr-reveal" id="rr-capacidades" data-rr-section="capacidades">
+          <div class="rr-section-head">
+            <div>
+              <span class="rr-eyebrow">03 · CAPACIDADES_TÉCNICAS</span>
+              <h2>Herramientas organizadas por propósito</h2>
+            </div>
+            <p>Cada tecnología está vinculada con tareas concretas realizadas en soporte, operación y análisis.</p>
+          </div>
+
+          <!-- Barra de herramientas: pestañas por categoría + buscador de texto -->
+          <div class="rr-cap-toolbar">
+            <!-- Pestañas: data-cap-filter coincide con data-cap-cat de cada bloque -->
+            <div class="rr-filter-tabs" role="tablist" aria-label="Filtrar capacidades técnicas">
+              <button class="active" data-cap-filter="all" type="button">Todas</button>
+              <button data-cap-filter="soporte" type="button">Soporte N2/N3</button>
+              <button data-cap-filter="observabilidad" type="button">Observabilidad</button>
+              <button data-cap-filter="datos" type="button">Datos e integraciones</button>
+              <button data-cap-filter="cloud" type="button">Cloud y desarrollo</button>
+              <button data-cap-filter="tickets" type="button">Tickets</button>
+            </div>
+
+            <!-- Campo de búsqueda en tiempo real dentro de las 37 herramientas -->
+            <div class="rr-search-box">
+              <i data-lucide="search-code" aria-hidden="true"></i>
+              <input id="rr-cap-search" type="search" placeholder="Buscar herramienta (ej. Dynatrace, SQL, Control-M)..." aria-label="Buscar herramienta técnica">
+            </div>
+          </div>
+
+          <!-- Mensaje informativo cuando la búsqueda no encuentra coincidencias -->
+          <p class="rr-empty-msg" id="rr-cap-empty" hidden>No se encontraron herramientas con ese criterio en la categoría seleccionada.</p>
+
+          <!-- Grilla con las 5 categorías de herramientas -->
+          <div class="rr-cap-grid">
+            <!-- Categoría 1: Soporte de aplicaciones y operación N2/N3 -->
+            <article class="rr-cap" data-cap-cat="soporte">
+              <div class="rr-cap-head">
+                <i data-lucide="monitor-dot" aria-hidden="true"></i>
+                <h3>Soporte de aplicaciones y operación N2/N3</h3>
+              </div>
+              <p>Diagnóstico productivo, operación batch, servidores de aplicaciones y escalamiento técnico.</p>
+              <div class="rr-tool-grid">
+                <div class="rr-tool"><b>Linux</b><small>Consulta de logs, procesos, servicios, archivos y permisos.</small></div>
+                <div class="rr-tool"><b>AIX</b><small>Revisión operativa de procesos, servicios y registros productivos.</small></div>
+                <div class="rr-tool"><b>Windows</b><small>Diagnóstico de aplicaciones, servicios y equipos.</small></div>
+                <div class="rr-tool"><b>WebSphere</b><small>Control de aplicaciones, JVM, perfiles y registros.</small></div>
+                <div class="rr-tool"><b>WAS</b><small>Verificación de instancias, nodos y disponibilidad.</small></div>
+                <div class="rr-tool"><b>IIS</b><small>Revisión de sitios, application pools y logs web.</small></div>
+                <div class="rr-tool"><b>IHS</b><small>Validación de servidor web, conectividad y enrutamiento.</small></div>
+                <div class="rr-tool"><b>Control-M</b><small>Monitoreo batch/jobs, cancelaciones, dependencias y reprocesos.</small></div>
+              </div>
+            </article>
+
+            <!-- Categoría 2: Observabilidad -->
+            <article class="rr-cap" data-cap-cat="observabilidad">
+              <div class="rr-cap-head">
+                <i data-lucide="activity" aria-hidden="true"></i>
+                <h3>Observabilidad</h3>
+              </div>
+              <p>Disponibilidad, métricas, alertas, trazas y registros para detectar degradaciones.</p>
+              <div class="rr-tool-grid">
+                <div class="rr-tool"><b>Dynatrace</b><small>Análisis de rendimiento, transacciones, trazas y causa raíz.</small></div>
+                <div class="rr-tool"><b>Grafana</b><small>Seguimiento de dashboards y métricas operativas.</small></div>
+                <div class="rr-tool"><b>Zabbix</b><small>Monitoreo de hosts, servicios y alertas de capacidad.</small></div>
+                <div class="rr-tool"><b>Kibana</b><small>Búsqueda y correlación de logs para identificar patrones.</small></div>
+                <div class="rr-tool"><b>Nagios</b><small>Control de infraestructura, conectividad y componentes críticos.</small></div>
+                <div class="rr-tool"><b>APM Wily</b><small>Rendimiento de aplicaciones Java, JVM y transacciones.</small></div>
+                <div class="rr-tool"><b>OpenSearch</b><small>Consulta y filtrado de registros en incidentes productivos.</small></div>
+              </div>
+            </article>
+
+            <!-- Categoría 3: Datos e integraciones -->
+            <article class="rr-cap" data-cap-cat="datos">
+              <div class="rr-cap-head">
+                <i data-lucide="database" aria-hidden="true"></i>
+                <h3>Datos e integraciones</h3>
+              </div>
+              <p>Validación de datos, endpoints, payloads y flujos transaccionales.</p>
+              <div class="rr-tool-grid">
+                <div class="rr-tool"><b>SQL</b><small>Consultas para validar información e investigar casos.</small></div>
+                <div class="rr-tool"><b>MySQL</b><small>Análisis de datos transaccionales y conciliaciones.</small></div>
+                <div class="rr-tool"><b>DBeaver</b><small>Conexión y consulta de múltiples bases en diagnósticos.</small></div>
+                <div class="rr-tool"><b>REST API</b><small>Validación de endpoints, códigos HTTP y payloads.</small></div>
+                <div class="rr-tool"><b>Postman</b><small>Solicitudes, autenticación y pruebas funcionales de APIs.</small></div>
+                <div class="rr-tool"><b>APIGEE</b><small>Seguimiento de APIs, rutas y respuestas.</small></div>
+                <div class="rr-tool"><b>F5</b><small>Revisión de certificados, pools y balanceo de carga.</small></div>
+                <div class="rr-tool"><b>XML</b><small>Lectura de mensajes y estructuras en integraciones.</small></div>
+              </div>
+            </article>
+
+            <!-- Categoría 4: Cloud y desarrollo -->
+            <article class="rr-cap" data-cap-cat="cloud">
+              <div class="rr-cap-head">
+                <i data-lucide="cloud-cog" aria-hidden="true"></i>
+                <h3>Cloud y desarrollo</h3>
+              </div>
+              <p>Soporte a microservicios, funciones cloud y mantenimiento básico de código.</p>
+              <div class="rr-tool-grid">
+                <div class="rr-tool"><b>Google Cloud</b><small>Consulta de logs, servicios, Cloud Run y funciones.</small></div>
+                <div class="rr-tool"><b>AWS</b><small>Seguimiento operativo de servicios y registros cloud.</small></div>
+                <div class="rr-tool"><b>Cloud Functions</b><small>Diagnóstico de ejecuciones serverless e integraciones.</small></div>
+                <div class="rr-tool"><b>Microservicios</b><small>Análisis de dependencias, comunicación y fallos.</small></div>
+                <div class="rr-tool"><b>JavaScript</b><small>Lectura y ajustes básicos de lógica.</small></div>
+                <div class="rr-tool"><b>Node.js</b><small>Soporte y revisión básica de servicios backend.</small></div>
+                <div class="rr-tool"><b>HTML / CSS</b><small>Interfaces y documentación técnica visual.</small></div>
+              </div>
+            </article>
+
+            <!-- Categoría 5: Gestión de tickets y soporte -->
+            <article class="rr-cap" data-cap-cat="tickets">
+              <div class="rr-cap-head">
+                <i data-lucide="tickets" aria-hidden="true"></i>
+                <h3>Gestión de tickets y soporte</h3>
+              </div>
+              <p>Seguimiento, documentación, priorización y escalamiento de incidentes y requerimientos.</p>
+              <div class="rr-tool-grid">
+                <div class="rr-tool"><b>Service Desk Manager</b><small>Gestión de requerimientos e incidentes en ICBC.</small></div>
+                <div class="rr-tool"><b>Jira</b><small>Seguimiento de tickets, tareas y coordinación técnica.</small></div>
+                <div class="rr-tool"><b>Freshworks</b><small>Registro y seguimiento de solicitudes en Airata.</small></div>
+                <div class="rr-tool"><b>Remedy</b><small>Incidentes y solicitudes bancarias en Prisma.</small></div>
+                <div class="rr-tool"><b>GLPI</b><small>Tickets, inventario y soporte a usuarios en Iké.</small></div>
+                <div class="rr-tool"><b>Zendesk</b><small>Atención y seguimiento de incidentes en Cinemark.</small></div>
+                <div class="rr-tool"><b>Outlook</b><small>Comunicación y coordinación de requerimientos.</small></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             CAPA 6: CASOS DE ESTUDIO (VINCULADOS AL LABORATORIO TÉCNICO)
+             =================================================================== -->
+        <section class="rr-section rr-reveal" id="rr-proyectos" data-rr-section="proyectos">
+          <div class="rr-section-head">
+            <div>
+              <span class="rr-eyebrow">04 · CASOS_DE_ESTUDIO</span>
+              <h2>Pruebas concretas de cómo trabajo</h2>
+            </div>
+            <p>Proyectos personales demostrativos basados en escenarios técnicos, sin información confidencial de empleadores.</p>
+          </div>
+
+          <div class="rr-projects">
+            <article class="rr-project">
+              <span class="rr-project-no">01 · INCIDENT_OPERATIONS</span>
+              <h3>Incident Response Dashboard</h3>
+              <p>Centraliza alerta, impacto, evidencias, responsables y cronología para ordenar el diagnóstico inicial.</p>
+              <div class="rr-project-scenario"><b>Escenario simulado</b>Degradación por timeout en <code>auth-service</code> con correlación de evidencias.</div>
+              <div class="rr-project-result"><b>Demuestra</b>Gestión de incidentes, trazabilidad y escalamiento con evidencia.</div>
+              <div class="rr-tags"><span>JavaScript</span><span>Logs</span><span>REST</span><span>SQL</span></div>
+              <button data-open-lab="scripts" data-open-script="report" type="button">Ver caso de estudio</button>
+            </article>
+
+            <article class="rr-project">
+              <span class="rr-project-no">02 · API_MONITORING</span>
+              <h3>API Health Monitor</h3>
+              <p>Valida endpoints, códigos HTTP, latencia, payloads y estado de dependencias.</p>
+              <div class="rr-project-scenario"><b>Escenario simulado</b>Inspección de respuestas 200/201 frente a caída HTTP 503 por Trace ID.</div>
+              <div class="rr-project-result"><b>Demuestra</b>Análisis de servicios REST y diagnóstico de degradaciones.</div>
+              <div class="rr-tags"><span>Postman</span><span>JSON</span><span>HTTP</span><span>Trace ID</span></div>
+              <button data-open-lab="api" type="button">Abrir demostración</button>
+            </article>
+
+            <article class="rr-project">
+              <span class="rr-project-no">03 · AUTOMATION</span>
+              <h3>IT Operations Toolkit</h3>
+              <p>Colección de scripts para inventario, salud de equipos, análisis de logs e informes.</p>
+              <div class="rr-project-scenario"><b>Escenario simulado</b>Auditoría preventiva de disco crítico y detección de errores recurrentes.</div>
+              <div class="rr-project-result"><b>Demuestra</b>Automatización segura de tareas repetitivas de soporte.</div>
+              <div class="rr-tags"><span>PowerShell</span><span>Python</span><span>CSV</span><span>Regex</span></div>
+              <button data-open-lab="scripts" data-open-script="inventory" type="button">Probar scripts</button>
+            </article>
+
+            <article class="rr-project">
+              <span class="rr-project-no">04 · TRANSFER_VALIDATION</span>
+              <h3>Transfer Validation Automation</h3>
+              <p>Simula una validación de transferencia combinando respuesta API, logs cloud y consulta SQL.</p>
+              <div class="rr-project-scenario"><b>Escenario simulado</b>Conciliación punta a punta con Correlation ID entre API, Cloud Logs y base SQL.</div>
+              <div class="rr-project-result"><b>Demuestra</b>Testing funcional, integración y diagnóstico transaccional de punta a punta.</div>
+              <div class="rr-tags"><span>Postman</span><span>Google Cloud</span><span>SQL</span><span>QA</span></div>
+              <button data-open-lab="scripts" data-open-script="transfer" type="button">Probar automatización</button>
+            </article>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             CAPA 7: LABORATORIO TÉCNICO INTERACTIVO (SCRIPTS + SIMULADOR API)
+             =================================================================== -->
+        <section class="rr-section rr-reveal" id="rr-laboratorio" data-rr-section="laboratorio">
+          <div class="rr-section-head">
+            <div>
+              <span class="rr-eyebrow">05 · LABORATORIO_TÉCNICO</span>
+              <h2>Demostraciones interactivas</h2>
+            </div>
+            <p>Datos simulados y ejecución segura: muestran el razonamiento técnico sin conectarse a sistemas reales.</p>
+          </div>
+
+          <!-- Pestañas principales del laboratorio -->
+          <div class="rr-lab-tabs">
+            <button class="active" data-rr-lab-tab="scripts" type="button">Scripts</button>
+            <button data-rr-lab-tab="api" type="button">Simulador API</button>
+          </div>
+
+          <!-- Panel 1: Scripts con copia de comando/salida y filtro de severidad en logs -->
+          <section class="rr-lab-panel" data-rr-lab-panel="scripts">
+            <div class="rr-script-layout">
+              <div class="rr-script-list">
+                <h3>Automatizaciones</h3>
+                <div class="rr-script-buttons">
+                  <button class="rr-script active" data-rr-script="inventory" type="button">
+                    <i data-lucide="boxes" aria-hidden="true"></i>
+                    <span><b>IT Inventory Collector</b><small>Inventario de equipos</small></span>
+                    <code>PS</code>
+                  </button>
+                  <button class="rr-script" data-rr-script="health" type="button">
+                    <i data-lucide="monitor-cog" aria-hidden="true"></i>
+                    <span><b>System Health Check</b><small>Diagnóstico de Windows</small></span>
+                    <code>PS</code>
+                  </button>
+                  <button class="rr-script" data-rr-script="logs" type="button">
+                    <i data-lucide="file-search" aria-hidden="true"></i>
+                    <span><b>Log Analyzer</b><small>Patrones y errores</small></span>
+                    <code>PY</code>
+                  </button>
+                  <button class="rr-script" data-rr-script="report" type="button">
+                    <i data-lucide="clipboard-list" aria-hidden="true"></i>
+                    <span><b>Incident Report</b><small>Informe automático</small></span>
+                    <code>PY</code>
+                  </button>
+                  <button class="rr-script" data-rr-script="transfer" type="button">
+                    <i data-lucide="workflow" aria-hidden="true"></i>
+                    <span><b>Transfer Validation</b><small>API + Logs + SQL</small></span>
+                    <code>PY</code>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Visor de ejecución y consola simulada -->
+              <div class="rr-script-output" aria-live="polite">
+                <div class="rr-script-output-head">
+                  <span id="rr-script-type">POWERSHELL · SOLO LECTURA</span>
+                  <h3 id="rr-script-name">IT Inventory Collector</h3>
+                  <p id="rr-script-desc">Recopila especificaciones y estado del equipo.</p>
+                </div>
+
+                <!-- Barra de comando con botones para copiar comando y ejecutar demo -->
+                <div class="rr-command">
+                  <code id="rr-script-command">PS&gt; .\IT-Inventory.ps1</code>
+                  <div class="rr-command-actions">
+                    <button class="rr-mini-btn" id="rr-copy-cmd" type="button">Copiar comando</button>
+                    <button class="rr-run-btn" id="rr-run-script" type="button">Ejecutar demo</button>
+                  </div>
+                </div>
+
+                <!-- Controles extra visibles solo en Log Analyzer (filtro Todos vs Solo errores) -->
+                <div class="rr-log-controls" id="rr-log-controls" hidden>
+                  <span>Filtrar eventos:</span>
+                  <button class="rr-mini-btn active" data-log-level="all" type="button">Todos (1.248)</button>
+                  <button class="rr-mini-btn" data-log-level="error" type="button">Solo errores HTTP 503 (14)</button>
+                </div>
+
+                <!-- Barra superior de la terminal con botón para copiar la salida -->
+                <div class="rr-terminal-bar">
+                  <span>SALIDA DE CONSOLA (SIMULADA)</span>
+                  <button class="rr-mini-btn" id="rr-copy-out" type="button">Copiar salida</button>
+                </div>
+                <pre class="rr-terminal" id="rr-script-output"></pre>
+              </div>
+            </div>
+          </section>
+
+          <!-- Panel 2: Simulador API con modo Normal (200/201) y Degradación (503) -->
+          <section class="rr-lab-panel" data-rr-lab-panel="api" hidden>
+            <div class="rr-api">
+              <div>
+                <h3>Estado de endpoints (hacé clic para inspeccionar)</h3>
+                <button class="rr-api-row active" data-api-endpoint="health" type="button">
+                  <span>GET</span><span>/api/v1/health</span><span class="rr-ok" data-api-badge="health">200</span>
+                </button>
+                <button class="rr-api-row" data-api-endpoint="payments" type="button">
+                  <span>POST</span><span>/api/v1/payments</span><span class="rr-ok" data-api-badge="payments">201</span>
+                </button>
+                <button class="rr-api-row" data-api-endpoint="accounts" type="button">
+                  <span>GET</span><span>/api/v1/accounts/1048</span><span class="rr-ok" data-api-badge="accounts">200</span>
+                </button>
+              </div>
+              <div>
+                <div class="rr-api-head">
+                  <h3>Respuesta y encabezados HTTP</h3>
+                  <button class="rr-mini-btn" id="rr-api-toggle-fault" type="button">Simular fallo 503</button>
+                </div>
+                <div class="rr-api-headers" id="rr-api-headers"></div>
+                <pre class="rr-json" id="rr-api-json"></pre>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <!-- ===================================================================
+             CAPA 8: CERTIFICADOS Y FORMACIÓN UNIVERSITARIA
+             Las 9 tarjetas y sus fotos se generan desde JavaScript (Sección 7)
+             =================================================================== -->
+        <section class="rr-section rr-reveal" id="rr-certificados" data-rr-section="certificados">
+          <div class="rr-section-head">
+            <div>
+              <span class="rr-eyebrow">06 · FORMACIÓN_PROFESIONAL</span>
+              <h2>Certificados y formación</h2>
+            </div>
+            <p>Certificaciones y cursos ordenados por fecha, del más reciente al más antiguo. Cada tarjeta enlaza con su fuente oficial.</p>
+          </div>
+
+          <!-- Filtros por área temática de certificación -->
+          <div class="rr-filter-tabs" id="rr-cert-filters" role="tablist" aria-label="Filtrar certificados por área">
+            <button class="active" data-cert-filter="all" type="button">Todos (9)</button>
+            <button data-cert-filter="db" type="button">Bases de Datos &amp; SQL</button>
+            <button data-cert-filter="qa" type="button">QA &amp; Testing</button>
+            <button data-cert-filter="dev" type="button">Desarrollo &amp; Git</button>
+            <button data-cert-filter="gestion" type="button">Gestión &amp; UI</button>
+          </div>
+
+          <!-- Contenedor vacío que completa JavaScript con tus 9 certificados y sus fotos -->
+          <div class="rr-value" id="rr-cert-grid"></div>
+
+          <!-- Tarjeta destacada de Formación Universitaria -->
+          <article class="rr-degree-card" aria-label="Título universitario">
+            <div class="rr-degree-info">
+              <span class="rr-eyebrow">// FORMACIÓN_UNIVERSITARIA · TÍTULO_DE_GRADO</span>
+              <h3>Técnico Superior Universitario en Informática</h3>
+              <p class="rr-degree-inst">Instituto Universitario de Tecnología de Maracaibo (IUTM)</p>
+              <p class="rr-degree-meta">Otorgado el 9 de julio de 2015 · Extensión Machiques · Zulia, Venezuela</p>
+              <p class="rr-degree-desc">
+                Formación académica superior orientada al análisis de sistemas, ingeniería de software, arquitectura de computadoras, redes, administración de bases de datos y gestión operativa de infraestructura IT.
+              </p>
+              <div class="rr-tags">
+                <span>Análisis de Sistemas</span>
+                <span>Bases de Datos</span>
+                <span>Redes e Infraestructura</span>
+                <span>Desarrollo de Software</span>
+              </div>
+            </div>
+
+            <!-- ARCHIVO TÍTULO: colocá TITULO.jpg dentro de assets/certificados/ -->
+            <div class="rr-degree-thumb" id="rr-degree-thumb">
+              <img
+                src="./certificado/TITULO.jpg"
+                alt="Título Universitario Técnico Superior Universitario en Informática - Ronald Enrique Baez Chacín"
+                loading="lazy"
+                onerror="this.replaceWith(document.createTextNode('TSU · IUTM'))"
+              >
+            </div>
+          </article>
+        </section>
+
+        <!-- ===================================================================
+             CAPA 9: PIE DE PÁGINA, TARJETAS DE CONTACTO Y CONTADOR MINIATURA
+             =================================================================== -->
+        <footer class="rr-contact" id="rr-footer" data-rr-section="footer">
+          <!-- Fila superior: insignia de disponibilidad, título y botón volver arriba -->
+          <div class="rr-contact-top">
+            <div>
+              <span class="rr-status-pill">
+                <span class="rr-status-dot" aria-hidden="true"></span>
+                DISPONIBLE · HÍBRIDO / REMOTO · BUENOS AIRES (UTC-3)
+              </span>
+              <h2>Conversemos sobre el próximo desafío.</h2>
+              <p class="rr-contact-sub">
+                Abierto a oportunidades como Analista de Sistemas, Application Support N2/N3, Analista Funcional Ssr. y Operaciones IT / Cloud.
+              </p>
+            </div>
+            <!-- Botón de regreso suave al inicio de la página -->
+            <button class="rr-copy-btn" data-rr-nav="inicio" type="button">Volver arriba ↑</button>
+          </div>
+
+          <!-- Grilla de 4 tarjetas de contacto rápido de un clic -->
+          <div class="rr-contact-grid">
+            <!-- Tarjeta 1: Correo electrónico + botón copiar -->
+            <div class="rr-contact-card">
+              <div>
+                <small>EMAIL DIRECTO</small>
+                <a href="mailto:ronaldebch@gmail.com">ronaldebch@gmail.com</a>
+              </div>
+              <button class="rr-copy-btn" id="rr-copy-email" type="button">Copiar email</button>
+            </div>
+
+            <!-- Tarjeta 2: Perfil de LinkedIn -->
+            <div class="rr-contact-card">
+              <div>
+                <small>LINKEDIN</small>
+                <a href="https://www.linkedin.com/in/ronaldebch/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ronaldebch ↗</a>
+              </div>
+              <span class="rr-copyright">Red profesional y certificaciones</span>
+            </div>
+
+            <!-- Tarjeta 3: Repositorios en GitHub -->
+            <div class="rr-contact-card">
+              <div>
+                <small>GITHUB</small>
+                <a href="https://github.com/ronaldebch" target="_blank" rel="noopener noreferrer">github.com/ronaldebch ↗</a>
+              </div>
+              <span class="rr-copyright">Scripts, proyectos y portafolio</span>
+            </div>
+
+            <!-- Tarjeta 4: Descarga directa de Currículum Vitae -->
+            <div class="rr-contact-card">
+              <div>
+                <small>CURRÍCULUM VITAE</small>
+                <a href="./CV/CV-RONALD-BAEZ.pdf" target="_blank" rel="noopener noreferrer">Descargar CV ↗</a>
+              </div>
+              <span class="rr-copyright">Formato PDF actualizado</span>
+            </div>
+          </div>
+
+          <!-- Barra inferior del footer: ficha para recruiters a la izquierda y derechos a la derecha -->
+          <div class="rr-contact-bottom">
+            <button class="rr-copy-btn" id="rr-copy-pitch" type="button">Copiar ficha rápida para recruiter</button>
+            <p class="rr-copyright">© 2026 Ronald Báez · Todos los derechos reservados.</p>
+          </div>
+
+          <!-- Apartado separado debajo de las tarjetas: muñequito sentado mirando el contador -->
+          <div class="rr-visitor-showcase">
+            <div class="rr-desk-widget" title="Contador acumulado de visitas al portafolio">
+              <!-- Muñequito sentado de perfil mirando hacia la pantalla a su derecha -->
+              <svg class="rr-desk-person" viewBox="0 0 36 46" fill="none" aria-hidden="true">
+                <!-- Respaldo y asiento de la silla -->
+                <path d="M5 18v16h12" stroke="#64748b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M11 34v8M7 42h8" stroke="#64748b" stroke-width="2" stroke-linecap="round"/>
+                <!-- Cabeza del muñequito mirando al monitor -->
+                <circle cx="15" cy="11" r="4.5" fill="currentColor"/>
+                <!-- Torso, brazo hacia el teclado y piernas sentadas -->
+                <path d="M14 17v12h9l2 11" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 21l9 3h5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+
+              <!-- Pantalla de computadora miniatura con el número de visitas -->
+              <div class="rr-mini-monitor">
+                <div class="rr-mini-screen">
+                  <span>VISITAS</span>
+                  <strong id="rr-visit-count">...</strong>
+                </div>
+                <div class="rr-mini-stand"></div>
+                <div class="rr-mini-base"></div>
+              </div>
+              <!-- Indicador en vivo: punto verde + bandera + país del visitante conectado -->
+              <div class="rr-live-country" id="rr-live-country" aria-live="polite">
+                <span class="rr-live-dot" aria-hidden="true"></span>
+                <span class="rr-live-flag" id="rr-live-flag">🌐</span>
+                <span id="rr-live-country-name">Detectando...</span>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </main>
+
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       CAPA 10: LÓGICA INTERACTIVA EN JAVASCRIPT (AUTOCONTENIDA EN INDEX.HTML)
+       Todo el código se ejecuta una vez cargado el DOM (DOMContentLoaded).
+       ========================================================================= -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Referencia al elemento raíz <html> para cambiar paleta y modo claro/oscuro
+      const htmlEl = document.documentElement;
+      // Contenedor principal del portafolio
+      const root = document.getElementById('ronald-redesign');
+      // Si no existe el contenedor, detiene la ejecución para evitar errores
+      if (!root) return;
+
+      // Función auxiliar para copiar texto compatible con navegadores e iframes
+      function copyTextSafe(text, buttonEl) {
+        if (!buttonEl) return;
+        const original = buttonEl.textContent;
+
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+
+        try {
+          document.execCommand('copy');
+          buttonEl.textContent = '¡Copiado!';
+          setTimeout(() => { buttonEl.textContent = original; }, 1600);
+        } catch {
+          buttonEl.textContent = text;
+        } finally {
+          document.body.removeChild(ta);
+        }
+      }
+
+      /* ======================================================================
+         SECCIÓN 1: GENERADOR DE ICONOS SVG INTEGRADOS
+         Dibuja íconos vectoriales ligeros sin depender de librerías externas.
+         ====================================================================== */
+      const icons = {
+        house: '<path d="m3 10 9-7 9 7"/><path d="M5 9v11h14V9"/><path d="M9 20v-6h6v6"/>',
+        sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>',
+        moon: '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
+        'search-code': '<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/><path d="m9 9-2 2 2 2"/><path d="m13 9 2 2-2 2"/>',
+        'shield-check': '<path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6z"/><path d="m9 12 2 2 4-4"/>',
+        network: '<rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-2h12v2"/>',
+        'monitor-dot': '<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="17" cy="9" r="2"/>',
+        activity: '<path d="M3 12h4l2-6 4 12 2-6h6"/>',
+        database: '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v7c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12v7c0 1.7 3.6 3 8 3s8-1.3 8-3v-7"/>',
+        'cloud-cog': '<path d="M7 18a5 5 0 1 1 1-9 6 6 0 0 1 11 3 3 3 0 1 1 0 6Z"/><circle cx="10" cy="15" r="2"/><path d="M10 11v2M10 17v2M6 15h2M12 15h2"/>',
+        tickets: '<path d="M4 5h16v4a2 2 0 0 0 0 6v4H4v-4a2 2 0 0 0 0-6z"/><path d="M9 9h6M9 13h6"/>',
+        boxes: '<path d="m4 7 8-4 8 4-8 4z"/><path d="M4 7v10l8 4 8-4V7M12 11v10"/>',
+        'monitor-cog': '<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><circle cx="16" cy="10" r="2"/><path d="M16 7v1M16 12v1M13 10h1M18 10h1"/>',
+        'file-search': '<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5M9 14h3M9 17h2"/><circle cx="15" cy="14" r="2"/><path d="m17 16 2 2"/>',
+        'clipboard-list': '<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2h6v2M9 9h6M9 13h6M9 17h3"/>',
+        'briefcase-business': '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5h8v2M3 12h18M10 12v2h4v-2"/>',
+        workflow: '<rect x="3" y="3" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><path d="M9 5h3a3 3 0 0 1 3 3v8M9 18h6"/>'
+      };
+
+      // Crea un elemento <svg> y lo inserta dentro de cada etiqueta <i data-lucide="...">
+      function renderIcon(node, iconName) {
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('viewBox', '0 0 24 24');
+        svg.setAttribute('width', '20');
+        svg.setAttribute('height', '20');
+        svg.setAttribute('aria-hidden', 'true');
+        svg.style.cssText = 'fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round';
+        svg.innerHTML = icons[iconName] || '<circle cx="12" cy="12" r="8"/>';
+        node.classList.add('rr-icon');
+        node.replaceChildren(svg);
+      }
+
+      // Recorre todos los íconos declarados en el HTML y los dibuja
+      root.querySelectorAll('[data-lucide]').forEach((node) => {
+        renderIcon(node, node.dataset.lucide);
+      });
+
+      /* ======================================================================
+         SECCIÓN 2: SELECTOR DE 4 PALETAS Y MODO CLARO / OSCURO
+         Guarda las preferencias en localStorage para recordarlas al recargar.
+         ====================================================================== */
+      const paletteBtns = [...root.querySelectorAll('[data-set-palette]')];
+      const modeToggle = root.querySelector('#rr-mode-toggle');
+      const modeLabel = root.querySelector('#rr-mode-label');
+      const modeIcon = modeToggle?.querySelector('i');
+
+      // Aplica la paleta elegida (blue, fintech, devops, amber)
+      function applyPalette(palette) {
+        htmlEl.setAttribute('data-palette', palette);
+        paletteBtns.forEach((b) => b.classList.toggle('active', b.dataset.setPalette === palette));
+        try { localStorage.setItem('rr-palette', palette); } catch {}
+      }
+
+      // Alterna entre modo oscuro ("dark") y modo claro ("light")
+      function applyMode(mode) {
+        htmlEl.setAttribute('data-mode', mode);
+        const isDark = mode === 'dark';
+        if (modeLabel) modeLabel.textContent = isDark ? 'Claro' : 'Oscuro';
+        if (modeIcon) renderIcon(modeIcon, isDark ? 'sun' : 'moon');
+        try { localStorage.setItem('rr-mode', mode); } catch {}
+      }
+
+      // Recupera la última combinación guardada si el usuario ya visitó el sitio
+      try {
+        const savedPalette = localStorage.getItem('rr-palette');
+        const savedMode = localStorage.getItem('rr-mode');
+        if (savedPalette) applyPalette(savedPalette);
+        if (savedMode) applyMode(savedMode);
+      } catch {}
+
+      paletteBtns.forEach((btn) => btn.addEventListener('click', () => applyPalette(btn.dataset.setPalette)));
+      if (modeToggle) {
+        modeToggle.addEventListener('click', () => {
+          const next = htmlEl.getAttribute('data-mode') === 'dark' ? 'light' : 'dark';
+          applyMode(next);
+        });
+      }
+
+      /* ======================================================================
+         SECCIÓN 3: NAVEGACIÓN SUAVE, PROGRESO DE LECTURA Y ANIMACIONES DE SCROLL
+         ====================================================================== */
+      const header = root.querySelector('#rr-header');
+      const progressBar = document.getElementById('rr-progress-bar');
+      const navButtons = [...root.querySelectorAll('.rr-nav [data-rr-nav]')];
+      const sections = [...root.querySelectorAll('[data-rr-section]')];
+
+      // Desplaza suavemente hasta la sección #rr-<key>
+      function scrollToSection(key) {
+        const target = root.querySelector('#rr-' + key);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      // Conecta todos los botones con data-rr-nav (menú superior y botón "Volver arriba")
+      root.querySelectorAll('[data-rr-nav]').forEach((btn) => {
+        btn.addEventListener('click', () => scrollToSection(btn.dataset.rrNav));
+      });
+
+      // Resalta el botón del menú correspondiente a la sección visible en pantalla
+      const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const current = entry.target.dataset.rrSection;
+            navButtons.forEach((btn) => btn.classList.toggle('active', btn.dataset.rrNav === current));
+          }
+        });
+      }, { threshold: 0.35 });
+      sections.forEach((sec) => navObserver.observe(sec));
+
+      // Actualiza la sombra de la cabecera y el ancho de la barra superior de progreso
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 20);
+        if (progressBar) {
+          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+          const pct = maxScroll > 0 ? Math.min(100, (window.scrollY / maxScroll) * 100) : 0;
+          progressBar.style.width = pct + '%';
+        }
+      }, { passive: true });
+
+      // Revela suavemente cada bloque cuando entra en el área visible
+      const revealItems = [...root.querySelectorAll('.rr-reveal')];
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      revealItems.forEach((el) => revealObserver.observe(el));
+
+      /* ======================================================================
+         SECCIÓN 4: TRAYECTORIA PROFESIONAL (8 EXPERIENCIAS)
+         ====================================================================== */
+      const jobs = {
+        icbc: {
+          date: 'SEP 2025 - AGO 2026',
+          title: 'ICBC Argentina',
+          role: 'Analista Ssr. Back Office · Sistemas legacy y middleware',
+          items: [
+            'Soporte operativo y funcional sobre sistemas legacy en procesos bancarios y transaccionales.',
+            'Seguimiento de integraciones entre aplicaciones mediante la capa middleware.',
+            'Análisis de problemas y revisión de logs para detectar incidentes técnicos en tiempo real.',
+            'Soporte a aplicaciones, networking y servidores WAS, IIS, IHS, EDGE y WebSphere.',
+            'Operación de plataformas AIX, Linux y Windows.',
+            'Gestión de incidentes mediante Tivoli Service Desk, Máximo, Service Desk Manager y Jira.',
+            'Monitoreo proactivo con Dynatrace, Zabbix, Grafana, APM Wily, Nagios, ELK/Kibana y Control-M.',
+            'Participación en iniciativas de Cloud, microservicios y API Banking.'
+          ],
+          tools: ['AIX', 'Linux', 'Windows', 'WebSphere', 'Control-M', 'Dynatrace', 'Grafana', 'Zabbix', 'Kibana', 'Sistemas legacy', 'Middleware', 'Service Desk Manager', 'Jira']
+        },
+        airata: {
+          date: 'JUL 2024 - SEP 2025',
+          title: 'Airata Argentina',
+          role: 'Analista de Sistemas',
+          items: [
+            'Identificación, diagnóstico y solución de problemas en aplicaciones.',
+            'Lectura e interpretación de logs y atención de tickets de usuarios.',
+            'Soporte y mantenimiento de sistemas transaccionales.',
+            'Trabajo con microservicios, Cloud Functions, APIs, MySQL y código JavaScript/Node.js.'
+          ],
+          tools: ['Google Cloud', 'Microservicios', 'Cloud Functions', 'JavaScript', 'Node.js', 'MySQL', 'Postman', 'Jira', 'Freshworks']
+        },
+        prisma: {
+          date: 'MAY 2023 - ENE 2024',
+          title: 'Atentus · Proyecto Prisma Medios de Pago',
+          role: 'Analista de Servicios Web Transaccionales N2',
+          items: [
+            'Resolución de incidentes y solicitudes de entidades bancarias mediante Remedy.',
+            'Búsqueda de logs y XML en servidores Linux, LiveCycle y Windows.',
+            'Gestión de certificados en F5, CRQ y planes de rollback.',
+            'Seguimiento de APIs y URLs en APIGEE, validando respuestas enviadas y recibidas.',
+            'Monitoreo en Control-M de procesos batch y jobs, identificando cancelaciones y dependencias.',
+            'Consultas con SQL Management Studio y DBeaver; monitoreo con Zabbix, Kibana, Grafana, Dynatrace y OpenSearch.'
+          ],
+          tools: ['Remedy', 'Control-M', 'Linux', 'F5', 'APIGEE', 'AWS', 'SQL Server', 'DBeaver', 'Dynatrace', 'OpenSearch']
+        },
+        ike: {
+          date: 'MAR 2022 - FEB 2023',
+          title: 'Iké Asistencia Argentina',
+          role: 'Help Desk Technician',
+          items: [
+            'Soporte remoto y presencial a usuarios y seguimiento de tickets en GLPI.',
+            'Preparación de equipos, aplicaciones, Windows, antivirus y componentes.',
+            'Gestión de altas y bajas de operadores y mantenimiento de inventario IT.'
+          ],
+          tools: ['Active Directory', 'Microsoft 365', 'GLPI', 'Windows', 'CRM', 'Inventario IT']
+        },
+        cinemark: {
+          date: 'OCT 2021 - MAR 2022',
+          title: 'Smartway · Cinemark Hoyts',
+          role: 'Soporte IT',
+          items: [
+            'Configuración y mantenimiento de proyección, sonido, ATM y televisores.',
+            'Actualización de cartelería digital, reparación de equipos y cableado de red/HDMI.',
+            'Gestión de incidentes mediante Zendesk.'
+          ],
+          tools: ['Zendesk', 'Redes', 'Hardware', 'Windows', 'ATM']
+        },
+        upex: {
+          date: '2021',
+          title: 'UPEX',
+          role: 'Tester QA Manual',
+          items: [
+            'Estimación y planificación del esfuerzo de pruebas.',
+            'Diseño y ejecución de casos de prueba funcionales manuales y automatizados.',
+            'Validación de base de datos mediante consultas SQL.'
+          ],
+          tools: ['QA Manual', 'SQL', 'Casos de prueba', 'Testing funcional', 'Selenium IDE']
+        },
+        pdvsa: {
+          date: '2017',
+          title: 'PDVSA',
+          role: 'Técnico en Informática',
+          items: [
+            'Análisis del estado de equipos del área y mantenimiento preventivo/correctivo.',
+            'Reemplazo de hardware, actualización de sistemas y registro de tickets.'
+          ],
+          tools: ['Hardware', 'Windows', 'Office', 'Zendesk']
+        },
+        cyber: {
+          date: '2007 - 2011',
+          title: 'Cyber Intercopis',
+          role: 'Atención al cliente y Soporte Técnico',
+          items: [
+            'Mantenimiento, reparación y respaldo de equipos.',
+            'Instalación de sistemas operativos, drivers, antivirus y redes LAN/IP.'
+          ],
+          tools: ['Windows', 'Linux', 'Redes LAN', 'Hardware', 'Soporte técnico']
+        }
+      };
+
+      const jobButtons = [...root.querySelectorAll('[data-rr-job]')];
+      const jobDate = root.querySelector('#rr-job-date');
+      const jobTitle = root.querySelector('#rr-job-title');
+      const jobRole = root.querySelector('#rr-job-role');
+      const jobItems = root.querySelector('#rr-job-items');
+      const jobTools = root.querySelector('#rr-job-tools');
+
+      // Carga los datos de la empresa seleccionada en el panel derecho
+      function showJob(key) {
+        const job = jobs[key];
+        if (!job) return;
+        jobDate.textContent = job.date;
+        jobTitle.textContent = job.title;
+        jobRole.textContent = job.role;
+        jobItems.innerHTML = job.items.map((item) => `<li>${item}</li>`).join('');
+        jobTools.innerHTML = job.tools.map((tool) => `<span>${tool}</span>`).join('');
+        jobButtons.forEach((btn) => btn.classList.toggle('active', btn.dataset.rrJob === key));
+      }
+
+      jobButtons.forEach((btn) => btn.addEventListener('click', () => showJob(btn.dataset.rrJob)));
+      showJob('icbc'); // Muestra ICBC por defecto al abrir la página
+
+      /* ======================================================================
+         SECCIÓN 5: FILTRO POR CATEGORÍA + BUSCADOR EN CAPACIDADES TÉCNICAS
+         ====================================================================== */
+      const capButtons = [...root.querySelectorAll('[data-cap-filter]')];
+      const capCards = [...root.querySelectorAll('[data-cap-cat]')];
+      const capSearchInput = root.querySelector('#rr-cap-search');
+      const capEmptyMsg = root.querySelector('#rr-cap-empty');
+      let activeCapCat = 'all';
+
+      // Filtra las tarjetas y herramientas combinando pestaña activa + texto buscado
+      function filterCapabilities() {
+        const query = (capSearchInput?.value || '').trim().toLowerCase();
+        let visibleCards = 0;
+
+        capCards.forEach((card) => {
+          const matchesCat = activeCapCat === 'all' || card.dataset.capCat === activeCapCat;
+          const tools = [...card.querySelectorAll('.rr-tool')];
+          let visibleTools = 0;
+
+          tools.forEach((tool) => {
+            const matchText = !query || tool.textContent.toLowerCase().includes(query);
+            tool.hidden = !matchText;
+            if (matchText) visibleTools++;
+          });
+
+          const showCard = matchesCat && visibleTools > 0;
+          card.hidden = !showCard;
+          if (showCard) visibleCards++;
+        });
+
+        if (capEmptyMsg) capEmptyMsg.hidden = visibleCards > 0;
+      }
+
+      capButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          activeCapCat = btn.dataset.capFilter;
+          capButtons.forEach((b) => b.classList.toggle('active', b === btn));
+          filterCapabilities();
+        });
+      });
+
+      if (capSearchInput) {
+        capSearchInput.addEventListener('input', filterCapabilities);
+      }
+
+      /* ======================================================================
+         SECCIÓN 6: LABORATORIO TÉCNICO (SCRIPTS, COPIA Y SIMULADOR API 200/503)
+         ====================================================================== */
+      const scripts = {
+        inventory: {
+          type: 'POWERSHELL · SOLO LECTURA',
+          name: 'IT Inventory Collector',
+          desc: 'Recopila especificaciones y estado del equipo.',
+          command: 'PS> .\\IT-Inventory.ps1',
+          output: 'Equipo: DESKTOP-RONALD\nSistema: Windows 11 Pro 25H2\nMemoria: 16 GB\nDisco: 1 TB SSD · 642 GB disponibles\nAntivirus: Microsoft Defender · Activo\n\n[OK] Inventario generado correctamente.'
+        },
+        health: {
+          type: 'POWERSHELL · DIAGNÓSTICO',
+          name: 'System Health Check',
+          desc: 'Comprueba CPU, memoria, discos, servicios y conectividad.',
+          command: 'PS> .\\System-Health.ps1',
+          output: 'CPU: 28% · OK\nMemoria: 82% · ADVERTENCIA\nDisco C: 9% libre · CRÍTICO\nServicio W3SVC: Detenido\nDNS: Operativo · 18 ms\n\n[ALERTA] 2 elementos requieren atención.'
+        },
+        logs: {
+          type: 'PYTHON · ANÁLISIS',
+          name: 'Log Analyzer',
+          desc: 'Agrupa errores y localiza patrones en registros.',
+          command: '$ python log_analyzer.py payments-api.log',
+          output: 'Eventos procesados: 1.248\nErrores: 14\nCódigo frecuente: HTTP 503\nServicio afectado: auth-service\nTrace ID: tr_b72e14\n\n[HIPÓTESIS] Timeout en servicio dependiente.',
+          outputErrorOnly: '[FILTRO: SOLO ERRORES HTTP 503]\n2026-11-20 14:02:11 ERROR [tr_b72e14] POST /auth/token -> HTTP 503 (timeout 3000ms)\n2026-11-20 14:02:14 ERROR [tr_b72e19] POST /auth/token -> HTTP 503 (upstream unavailable)\n2026-11-20 14:02:18 ERROR [tr_b72e22] POST /auth/token -> HTTP 503 (circuit breaker open)\nTotal coincidencias críticas: 14 eventos en ventana de 3 minutos.'
+        },
+        report: {
+          type: 'PYTHON · DOCUMENTACIÓN',
+          name: 'Incident Report Generator',
+          desc: 'Genera un informe estructurado desde evidencias.',
+          command: '$ python incident_report.py --incident INC-1048',
+          output: 'Incidente: INC-1048\nServicio: payments-api\nPrioridad: Alta\nDuración: 12 minutos\nCausa: timeout en auth-service\n\n[OK] Reporte generado: INC-1048-report.pdf'
+        },
+        transfer: {
+          type: 'PYTHON · AUTOMATIZACIÓN',
+          name: 'Transfer Validation Automation',
+          desc: 'Valida una transferencia combinando API, logs cloud y SQL.',
+          command: '$ python transfer_validation.py --id TRF-2048',
+          output: '[1/4] POST /payments/transfer ........ 201 CREATED\n[2/4] Google Cloud Logs ............... transaction accepted\n[3/4] SQL validation .................. amount and status match\n[4/4] Correlation ID .................. trf_7a91c2\n\nRESULTADO: TRANSFERENCIA EXITOSA\nSIMULACIÓN SEGURA · sin conexiones reales'
+        }
+      };
+
+      let selectedScript = 'inventory';
+      let logFilterLevel = 'all';
+      const labTabs = [...root.querySelectorAll('[data-rr-lab-tab]')];
+      const labPanels = [...root.querySelectorAll('[data-rr-lab-panel]')];
+      const scriptButtons = [...root.querySelectorAll('[data-rr-script]')];
+      const runBtn = root.querySelector('#rr-run-script');
+      const logControls = root.querySelector('#rr-log-controls');
+      const logLevelBtns = [...root.querySelectorAll('[data-log-level]')];
+
+      // Cambia entre la pestaña "Scripts" y "Simulador API"
+      function openLab(tabName) {
+        labTabs.forEach((b) => b.classList.toggle('active', b.dataset.rrLabTab === tabName));
+        labPanels.forEach((p) => { p.hidden = p.dataset.rrLabPanel !== tabName; });
+      }
+
+      // Devuelve el texto de salida según el script activo y el filtro de logs
+      function getCurrentScriptOutput() {
+        const item = scripts[selectedScript];
+        if (selectedScript === 'logs' && logFilterLevel === 'error') {
+          return item.outputErrorOnly;
+        }
+        return item.output;
+      }
+
+      // Actualiza el visor cuando se elige un script de la lista
+      function selectScript(key) {
+        const item = scripts[key];
+        if (!item) return;
+        selectedScript = key;
+        scriptButtons.forEach((b) => b.classList.toggle('active', b.dataset.rrScript === key));
+        root.querySelector('#rr-script-type').textContent = item.type;
+        root.querySelector('#rr-script-name').textContent = item.name;
+        root.querySelector('#rr-script-desc').textContent = item.desc;
+        root.querySelector('#rr-script-command').textContent = item.command;
+        if (logControls) logControls.hidden = key !== 'logs';
+        root.querySelector('#rr-script-output').textContent = getCurrentScriptOutput();
+      }
+
+      labTabs.forEach((btn) => btn.addEventListener('click', () => openLab(btn.dataset.rrLabTab)));
+      scriptButtons.forEach((btn) => btn.addEventListener('click', () => selectScript(btn.dataset.rrScript)));
+
+      logLevelBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          logFilterLevel = btn.dataset.logLevel;
+          logLevelBtns.forEach((b) => b.classList.toggle('active', b === btn));
+          root.querySelector('#rr-script-output').textContent = getCurrentScriptOutput();
+        });
+      });
+
+      selectScript('inventory');
+
+      // Simula la ejecución del script al presionar "Ejecutar demo"
+      runBtn.addEventListener('click', () => {
+        const outputEl = root.querySelector('#rr-script-output');
+        runBtn.disabled = true;
+        runBtn.textContent = 'Ejecutando…';
+        outputEl.textContent = 'Iniciando demostración...\nRecopilando evidencia simulada...';
+        setTimeout(() => {
+          outputEl.textContent = getCurrentScriptOutput();
+          runBtn.disabled = false;
+          runBtn.textContent = 'Ejecutar demo';
+        }, 500);
+      });
+
+      // Botones para copiar comando y salida de consola
+      root.querySelector('#rr-copy-cmd')?.addEventListener('click', (e) => {
+        copyTextSafe(root.querySelector('#rr-script-command').textContent, e.currentTarget);
+      });
+
+      root.querySelector('#rr-copy-out')?.addEventListener('click', (e) => {
+        copyTextSafe(root.querySelector('#rr-script-output').textContent, e.currentTarget);
+      });
+
+      // Conecta los botones de "Casos de estudio" con su demostración en el Laboratorio
+      root.querySelectorAll('[data-open-lab]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          scrollToSection('laboratorio');
+          openLab(btn.dataset.openLab);
+          if (btn.dataset.openScript) selectScript(btn.dataset.openScript);
+        });
+      });
+
+      // Datos simulados del Simulador API (modo normal vs fallo HTTP 503)
+      const apiResponses = {
+        health: {
+          okCode: '200',
+          normal: {
+            headers: 'HTTP/1.1 200 OK · Content-Type: application/json · X-Trace-Id: tr_8fa21c · Latency: 38ms',
+            body: { service: 'payments-api', status: 'healthy', latency_ms: 38, database: 'connected', trace_id: 'tr_8fa21c' }
+          },
+          fault: {
+            headers: 'HTTP/1.1 503 Service Unavailable · Content-Type: application/json · X-Trace-Id: tr_8fa99e · Latency: 3012ms',
+            body: { service: 'payments-api', status: 'degraded', error: 'UPSTREAM_TIMEOUT', dependency: 'auth-service', trace_id: 'tr_8fa99e' }
+          }
+        },
+        payments: {
+          okCode: '201',
+          normal: {
+            headers: 'HTTP/1.1 201 Created · Content-Type: application/json · X-Trace-Id: tr_9b31e0 · Latency: 112ms',
+            body: { transaction_id: 'tx_904821', status: 'approved', amount: 12500.00, currency: 'ARS', trace_id: 'tr_9b31e0' }
+          },
+          fault: {
+            headers: 'HTTP/1.1 503 Service Unavailable · Content-Type: application/json · X-Trace-Id: tr_9b35f1 · Latency: 3005ms',
+            body: { transaction_id: null, status: 'rejected_upstream', retryable: true, trace_id: 'tr_9b35f1' }
+          }
+        },
+        accounts: {
+          okCode: '200',
+          normal: {
+            headers: 'HTTP/1.1 200 OK · Content-Type: application/json · X-Trace-Id: tr_4c10a7 · Latency: 44ms',
+            body: { account_id: '1048', status: 'active', balance_verified: true, last_sync: '2026-11-20T16:30:00Z' }
+          },
+          fault: {
+            headers: 'HTTP/1.1 503 Service Unavailable · Content-Type: application/json · X-Trace-Id: tr_4c19b2 · Latency: 2998ms',
+            body: { account_id: '1048', status: 'unavailable', reason: 'CORE_BANKING_TIMEOUT', trace_id: 'tr_4c19b2' }
+          }
+        }
+      };
+
+      let currentEndpoint = 'health';
+      let simulateFault = false;
+      const apiButtons = [...root.querySelectorAll('[data-api-endpoint]')];
+      const apiJsonEl = root.querySelector('#rr-api-json');
+      const apiHeadersEl = root.querySelector('#rr-api-headers');
+      const faultToggleBtn = root.querySelector('#rr-api-toggle-fault');
+
+      // Renderiza la respuesta JSON, encabezados y códigos de estado HTTP
+      function renderApiView() {
+        apiButtons.forEach((b) => {
+          const ep = b.dataset.apiEndpoint;
+          b.classList.toggle('active', ep === currentEndpoint);
+          const badge = b.querySelector('[data-api-badge]');
+          if (badge) {
+            badge.textContent = simulateFault ? '503' : apiResponses[ep].okCode;
+            badge.className = simulateFault ? 'rr-err' : 'rr-ok';
+          }
+        });
+
+        const data = simulateFault ? apiResponses[currentEndpoint].fault : apiResponses[currentEndpoint].normal;
+        if (apiHeadersEl) apiHeadersEl.textContent = data.headers;
+        apiJsonEl.textContent = JSON.stringify(data.body, null, 2);
+        if (faultToggleBtn) {
+          faultToggleBtn.textContent = simulateFault ? 'Restaurar 200 OK' : 'Simular fallo 503';
+          faultToggleBtn.classList.toggle('active', simulateFault);
+        }
+      }
+
+      apiButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          currentEndpoint = btn.dataset.apiEndpoint;
+          renderApiView();
+        });
+      });
+
+      if (faultToggleBtn) {
+        faultToggleBtn.addEventListener('click', () => {
+          simulateFault = !simulateFault;
+          renderApiView();
+        });
+      }
+
+      renderApiView();
+
+      /* ======================================================================
+         SECCIÓN 7: CERTIFICADOS Y FORMACIÓN (CON FOTOS Y FILTROS POR ÁREA)
+         Guardá tus 9 fotos en: assets/certificados/
+         ====================================================================== */
+      // Ruta relativa hacia la carpeta donde tenés guardadas las imágenes:
+      const RUTA_CERTIFICADOS = './certificado/';
+
+      // Lista de certificados (para agregar uno nuevo, copiá un bloque { ... })
+      const certs = [
+        {
+          date: '05 SEP 2024',
+          org: 'UDEMY',
+          cat: 'db',                     // Categoría para el filtro: db | qa | dev | gestion
+          title: 'SQL Server · Curso completo de 0 a Avanzado',
+          url: 'https://udemy-certificate.s3.amazonaws.com/pdf/UC-762540ec-91ed-416f-95cb-5d85bb07c26a.pdf',
+          tag: 'SQL',
+          img: '01-udemy-sql.png'        // <-- AQUÍ VA LA FOTO con su nombre exacto
+        },
+        {
+          date: '17 JUN 2024',
+          org: 'DESAFÍO LATAM',
+          cat: 'dev',
+          title: 'Bases de Git y GitHub',
+          url: 'https://cursos.desafiolatam.com/certificates/18twbvlrhi',
+          tag: 'GIT',
+          img: '02-git.png'              // <-- AQUÍ VA LA FOTO con su nombre exacto
+        },
+        {
+          date: '09 JUN 2024',
+          org: 'DESAFÍO LATAM',
+          cat: 'gestion',
+          title: 'Taller de Figma',
+          url: 'https://cursos.desafiolatam.com/certificates/nxsva1xzhh',
+          tag: 'FIGMA',
+          img: '03-figma.png'            // <-- AQUÍ VA LA FOTO con su nombre exacto
+        },
+        {
+          date: '05 ENE 2024',
+          org: 'PRISMA UNIVERSITY',
+          cat: 'gestion',
+          title: 'Concientización de la norma ISO 20000',
+          url: 'https://www.linkedin.com/in/ronaldebch/details/certifications/1718155196555/single-media-viewer?profileId=ACoAADHxsD4B1LiaWciYnFVUoJN1IFl83lI1Kq8',
+          tag: 'ISO',
+          img: '04-iso20000.png'         // <-- AQUÍ VA LA FOTO con su nombre exacto
+        },
+        {
+          date: '05 MAY 2023',
+          org: 'EDUCACIÓN IT',
+          cat: 'dev',
+          title: 'Java para no programadores',
+          url: 'https://api.educacionit.com/pdf/certificados/ronald-enrique-baez-chacin-658265/62953',
+          tag: 'JAVA',
+          img: '05-java.png'             // <-- AQUÍ VA LA FOTO con su nombre exacto
+        },
+        {
+          date: '04 ABR 2023',
+          org: 'EDUCACIÓN IT',
+          cat: 'dev',
+          title: 'Desarrollo Web con HTML',
+          url: 'https://api.educacionit.com/pdf/certificados/ronald-enrique-baez-chacin-658265/63261',
+          tag: 'HTML',
+          img: '06-html.png'             // <-- AQUÍ VA LA FOTO con su nombre exacto
+        },
+        {
+          date: '05 DIC 2022',
+          org: 'EDUCACIÓN IT',
+          cat: 'db',
+          title: 'Introducción a Bases de Datos y SQL',
+          url: 'https://api.educacionit.com/pdf/certificados/ronald-enrique-baez-chacin-658265/63002',
+          tag: 'SQL',
+          img: '07-db-sql.png'           // <-- AQUÍ VA LA FOTO con su nombre exacto
+        },
+        {
+          date: '24 NOV 2022',
+          org: 'EDUCACIÓN IT',
+          cat: 'qa',
+          title: 'Software Tester QA',
+          url: 'https://api.educacionit.com/pdf/certificados/ronald-enrique-baez-chacin-658265/61039',
+          tag: 'QA',
+          img: '08-qa.png'               // <-- AQUÍ VA LA FOTO con su nombre exacto
+        },
+        {
+          date: '14 JUL 2021',
+          org: 'EDUCACIÓN IT',
+          cat: 'qa',
+          title: 'Introducción a Software Testing QA',
+          url: 'https://api.educacionit.com/pdf/certificados/ronald-enrique-baez-chacin-658265/55587',
+          tag: 'QA',
+          img: '09-testing-qa.png'       // <-- AQUÍ VA LA FOTO con su nombre exacto
+        }
+      ];
+
+      // Dibuja cada tarjeta de certificado dentro de #rr-cert-grid
+      const certGrid = root.querySelector('#rr-cert-grid');
+      certs.forEach((c) => {
+        const card = document.createElement('article');
+        card.className = 'rr-cert-card';
+        card.dataset.certCat = c.cat;
+        card.innerHTML = `
+          <div class="rr-cert-thumb">
+            <img src="${RUTA_CERTIFICADOS}${c.img}" alt="Certificado ${c.title}" loading="lazy">
+          </div>
+          <code>${c.date}</code>
+          <h3>${c.title}</h3>
+          <p>Institución: ${c.org}</p>
+          <a class="rr-primary" href="${c.url}" target="_blank" rel="noopener noreferrer">Ver certificado oficial ↗</a>
+        `;
+
+        // Si la foto todavía no existe en la carpeta, muestra la sigla (SQL, GIT, etc.)
+        const img = card.querySelector('img');
+        img.addEventListener('error', () => {
+          img.replaceWith(document.createTextNode(c.tag));
+        });
+
+        certGrid.appendChild(card);
+      });
+
+      // Conecta los botones de filtro de certificados por temática
+      const certFilterBtns = [...root.querySelectorAll('[data-cert-filter]')];
+      const certCards = [...root.querySelectorAll('.rr-cert-card')];
+      certFilterBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const filter = btn.dataset.certFilter;
+          certFilterBtns.forEach((b) => b.classList.toggle('active', b === btn));
+          certCards.forEach((card) => {
+            card.hidden = filter !== 'all' && card.dataset.certCat !== filter;
+          });
+        });
+      });
+
+      /* ======================================================================
+         SECCIÓN 8: BOTONES DE COPIADO EN EL FOOTER (EMAIL Y FICHA RECRUITER)
+         ====================================================================== */
+      // Copia el correo electrónico al portapapeles
+      const copyBtn = root.querySelector('#rr-copy-email');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => copyTextSafe('ronaldebch@gmail.com', copyBtn));
+      }
+
+      // Copia un resumen ejecutivo listo para pegar en mensajes o sistemas de selección
+      const pitchBtn = root.querySelector('#rr-copy-pitch');
+      if (pitchBtn) {
+        const recruiterSummary = 'Ronald Báez — Analista de Sistemas & Application Support N2/N3 (Linux, SQL/MySQL, APIs REST, Dynatrace, Control-M, Cloud) | Buenos Aires | Email: ronaldebch@gmail.com | LinkedIn: https://www.linkedin.com/in/ronaldebch/';
+        pitchBtn.addEventListener('click', () => copyTextSafe(recruiterSummary, pitchBtn));
+      }
+
+      /* ======================================================================
+         SECCIÓN 9: CONTADOR GLOBAL DE VISITAS (SIN REGISTRO NI PANEL EXTERNO)
+         Incrementa +1 en la nube en cada visita y muestra el total acumulado.
+         ====================================================================== */
+      const visitCountEl = root.querySelector('#rr-visit-count');
+      if (visitCountEl) {
+        // Endpoint público gratuito sin registro que lleva el conteo acumulado
+        const counterUrl = 'https://api.counterapi.dev/v1/ronaldebch-portafolio/visitas/up';
+
+        fetch(counterUrl)
+          .then((res) => {
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            return res.json();
+          })
+          .then((data) => {
+            // Formatea el número con separador de miles en español (ej. 1.248)
+            const total = Number(data.count || 1);
+            visitCountEl.textContent = total.toLocaleString('es-AR');
+          })
+          .catch(() => {
+            // Respaldo local en el navegador si un bloqueador impide la llamada externa
+            let localHits = 1;
+            try {
+              localHits = (parseInt(localStorage.getItem('rr-local-visits') || '0', 10) || 0) + 1;
+              localStorage.setItem('rr-local-visits', String(localHits));
+            } catch {}
+            visitCountEl.textContent = localHits.toLocaleString('es-AR');
+          });
+      }
+      /* ======================================================================
+         SECCIÓN 10: DETECCIÓN EN VIVO DE PAÍS Y BANDERA DEL VISITANTE ACTUAL
+         Muestra el punto verde activo + emoji de bandera + país conectado.
+         ====================================================================== */
+      const liveFlagEl = root.querySelector('#rr-live-flag');
+      const liveCountryNameEl = root.querySelector('#rr-live-country-name');
+
+      // Dibuja la bandera real (imagen PNG nítida compatible con Windows, Mac y móviles)
+      function renderFlagIcon(isoCode, countryLabel) {
+        if (!isoCode || isoCode.length !== 2) {
+          liveFlagEl.textContent = '🌐';
+          return;
+        }
+        const code = isoCode.toLowerCase();
+        liveFlagEl.innerHTML = `<img src="https://flagcdn.com/w40/${code}.png" alt="Bandera de ${countryLabel}" width="20" height="14" style="display:block;border-radius:2px;object-fit:cover;">`;
+      }
+
+      // Respaldo offline usando la zona horaria del navegador si bloquean la consulta IP
+      function detectCountryFromTimezone() {
+        try {
+          const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+          const tzMap = {
+            'America/Argentina': { code: 'AR', name: 'Argentina' },
+            'America/Buenos_Aires': { code: 'AR', name: 'Argentina' },
+            'America/Caracas': { code: 'VE', name: 'Venezuela' },
+            'America/Santiago': { code: 'CL', name: 'Chile' },
+            'America/Bogota': { code: 'CO', name: 'Colombia' },
+            'America/Mexico_City': { code: 'MX', name: 'México' },
+            'America/Monterrey': { code: 'MX', name: 'México' },
+            'America/Montevideo': { code: 'UY', name: 'Uruguay' },
+            'America/Lima': { code: 'PE', name: 'Perú' },
+            'America/Guayaquil': { code: 'EC', name: 'Ecuador' },
+            'America/La_Paz': { code: 'BO', name: 'Bolivia' },
+            'America/Asuncion': { code: 'PY', name: 'Paraguay' },
+            'America/Sao_Paulo': { code: 'BR', name: 'Brasil' },
+            'America/Panama': { code: 'PA', name: 'Panamá' },
+            'America/Costa_Rica': { code: 'CR', name: 'Costa Rica' },
+            'America/Santo_Domingo': { code: 'DO', name: 'República Dominicana' },
+            'America/New_York': { code: 'US', name: 'Estados Unidos' },
+            'America/Chicago': { code: 'US', name: 'Estados Unidos' },
+            'America/Denver': { code: 'US', name: 'Estados Unidos' },
+            'America/Los_Angeles': { code: 'US', name: 'Estados Unidos' },
+            'America/Toronto': { code: 'CA', name: 'Canadá' },
+            'Europe/Madrid': { code: 'ES', name: 'España' },
+            'Europe/London': { code: 'GB', name: 'Reino Unido' },
+            'Europe/Berlin': { code: 'DE', name: 'Alemania' },
+            'Europe/Paris': { code: 'FR', name: 'Francia' },
+            'Europe/Rome': { code: 'IT', name: 'Italia' },
+            'Europe/Lisbon': { code: 'PT', name: 'Portugal' }
+          };
+          const matchKey = Object.keys(tzMap).find((k) => tz.startsWith(k));
+          if (matchKey) return tzMap[matchKey];
+        } catch {}
+        return { code: '', name: 'En línea' };
+      }
+
+      if (liveFlagEl && liveCountryNameEl) {
+        fetch('https://ipwho.is/')
+          .then((res) => {
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            return res.json();
+          })
+          .then((geo) => {
+            if (!geo || geo.success === false || !geo.country_code) {
+              throw new Error('Sin datos de geolocalización');
+            }
+            const regionNames = new Intl.DisplayNames(['es'], { type: 'region' });
+            const spanishName = regionNames.of(geo.country_code) || geo.country;
+            renderFlagIcon(geo.country_code, spanishName);
+            liveCountryNameEl.textContent = `${spanishName} · Viendo perfil`;
+          })
+          .catch(() => {
+            const fallback = detectCountryFromTimezone();
+            renderFlagIcon(fallback.code, fallback.name);
+            liveCountryNameEl.textContent = `${fallback.name} · Viendo perfil`;
+          });
+      }
+    });
+  </script>
+</body>
+</html>
